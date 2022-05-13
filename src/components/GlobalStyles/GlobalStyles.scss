@@ -5,6 +5,8 @@
 :root {
     --primary: #916264;
     --secondary: #f8f1e9;
+    --brown: #8f4818;
+    --darkbrown: #700230;
 
     //Default layout
     --default-layout-max-width: 1270px;
@@ -26,4 +28,17 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--brown);
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 4px;
+    }
 }
