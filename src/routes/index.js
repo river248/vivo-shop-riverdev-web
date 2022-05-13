@@ -1,4 +1,4 @@
-import { TipLayout } from '~/components/Layout'
+import { TipLayout } from '~/components/Layouts'
 
 import Home from '~/pages/Home'
 import Product from '~/pages/Product'

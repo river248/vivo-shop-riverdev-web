@@ -4,6 +4,11 @@
 
 :root {
     --primary: #916264;
+    --secondary: #f8f1e9;
+
+    //Default layout
+    --default-layout-max-width: 1270px;
+    --default-layout-padding: 15px;
 }
 
 * {
