@@ -1,0 +1,42 @@
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    user-select: none;
+    font-size: 2rem;
+    color: var(--primary);
+
+    + .wrapper {
+        margin-left: 8px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
+}
+
+//Button type
+.primary {
+    border: 1px solid transparent;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.outline {
+    color: var(--primary);
+    border-color: currentColor;
+}
+
+//Button size
+.small {
+    padding: 4px 16px;
+}
