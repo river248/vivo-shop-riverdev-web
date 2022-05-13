@@ -1,3 +1,5 @@
+import { TipLayout } from '~/components/Layout'
+
 import Home from '~/pages/Home'
 import Product from '~/pages/Product'
 import Tip from '~/pages/Tip'
@@ -5,7 +7,7 @@ import Tip from '~/pages/Tip'
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/product', component: Product },
-    { path: '/tip', component: Tip, layout: null },
+    { path: '/tip', component: Tip, layout: TipLayout },
 ]
 
 const privateRoutes = []
