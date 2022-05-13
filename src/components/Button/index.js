@@ -12,6 +12,7 @@ function Button({
     primary = false,
     outline = false,
     text = false,
+    size = 'medium',
     disabled = false,
     children,
     className,
@@ -47,6 +48,7 @@ function Button({
         primary,
         outline,
         text,
+        [size]: size,
         disabled,
     })
     return (

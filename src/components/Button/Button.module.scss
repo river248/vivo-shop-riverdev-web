@@ -8,6 +8,8 @@
     user-select: none;
     font-size: 2rem;
     color: var(--primary);
+    border: 1px solid transparent;
+    background-color: transparent;
 
     + .wrapper {
         margin-left: 8px;
@@ -16,6 +18,10 @@
     &.disabled {
         pointer-events: none;
         opacity: 0.5;
+    }
+
+    &:hover {
+        color: var(--darkbrown);
     }
 }
 
@@ -26,7 +32,6 @@
 
 //Button type
 .primary {
-    border: 1px solid transparent;
     color: var(--primary);
     cursor: pointer;
 }
@@ -36,7 +41,15 @@
     border-color: currentColor;
 }
 
+.text {
+    outline: none;
+}
+
 //Button size
 .small {
     padding: 4px 16px;
+}
+
+.large {
+    width: 100%;
 }
