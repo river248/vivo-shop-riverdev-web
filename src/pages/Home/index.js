@@ -6,6 +6,7 @@ import Title from '~/components/Title'
 import images from '~/assets/images'
 import { Wrapper as ProductWrapper, FlexWrapper } from '~/components/Popper'
 import SlideShow from '~/components/SlideShow'
+import Card from '~/components/Card'
 
 const cx = classNames.bind(styles)
 
@@ -21,21 +22,45 @@ function Home() {
             <Title content={'sản phẩm mới'} rightContent={'Xem thêm...'} />
             <ProductWrapper flexWrapper>
                 {products.map((product) => (
-                    <FlexWrapper key={product}>test {product}</FlexWrapper>
+                    <FlexWrapper key={product}>
+                        <Card
+                            title={'ao thun asdasdasdasdasd asdasdasd'}
+                            onClick={() => alert('say hi')}
+                            image={images.candytop}
+                            uppercase
+                            content={'200,000 VND'}
+                        />
+                    </FlexWrapper>
                 ))}
             </ProductWrapper>
             <hr />
             <Title content={'sản phẩm hot'} rightContent={'Xem thêm...'} />
             <ProductWrapper flexWrapper>
                 {products.map((product) => (
-                    <FlexWrapper key={product}>test {product}</FlexWrapper>
+                    <FlexWrapper key={product}>
+                        <Card
+                            title={'ao thun'}
+                            onClick={() => alert('say hi')}
+                            image={images.candytop}
+                            uppercase
+                            content={'200,000 VND'}
+                        />
+                    </FlexWrapper>
                 ))}
             </ProductWrapper>
             <hr />
             <Title content={'hàng mới về'} rightContent={'Xem thêm...'} />
             <ProductWrapper flexWrapper>
                 {products.map((product) => (
-                    <FlexWrapper key={product}>test {product}</FlexWrapper>
+                    <FlexWrapper key={product}>
+                        <Card
+                            title={'ao thun'}
+                            onClick={() => alert('say hi')}
+                            image={images.candytop}
+                            uppercase
+                            content={'200,000 VND'}
+                        />
+                    </FlexWrapper>
                 ))}
             </ProductWrapper>
         </div>
