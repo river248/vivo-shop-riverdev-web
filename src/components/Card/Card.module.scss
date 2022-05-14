@@ -10,6 +10,10 @@
     text-transform: uppercase;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 .title,
 .content {
     padding: 5px;
@@ -22,6 +26,7 @@
 .title {
     line-clamp: 2;
     -webkit-line-clamp: 2;
+    font-size: 2rem;
 }
 
 .content {

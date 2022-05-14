@@ -7,12 +7,11 @@ import images from '~/assets/images'
 import { Wrapper as ProductWrapper, FlexWrapper } from '~/components/Popper'
 import SlideShow from '~/components/SlideShow'
 import Card from '~/components/Card'
+import { hotProducts, newImports, newProducts } from '~/data'
 
 const cx = classNames.bind(styles)
 
 function Home() {
-    const products = [1, 2, 3, 4, 5]
-
     return (
         <div className={cx('wrapper')}>
             <img className={cx('img-bell')} src={images.bell} alt="bell" />
@@ -21,14 +20,14 @@ function Home() {
             <SlideShow />
             <Title content={'sản phẩm mới'} rightContent={'Xem thêm...'} />
             <ProductWrapper flexWrapper>
-                {products.map((product) => (
-                    <FlexWrapper key={product}>
+                {newProducts.map((newProduct) => (
+                    <FlexWrapper key={newProduct.id}>
                         <Card
-                            title={'ao thun asdasdasdasdasd asdasdasd'}
+                            title={newProduct.name}
                             onClick={() => alert('say hi')}
-                            image={images.candytop}
-                            uppercase
-                            content={'200,000 VND'}
+                            image={newProduct.thumbnail}
+                            textStyle={'capitalize'}
+                            content={`${newProduct.price} VND`}
                         />
                     </FlexWrapper>
                 ))}
@@ -36,14 +35,14 @@ function Home() {
             <hr />
             <Title content={'sản phẩm hot'} rightContent={'Xem thêm...'} />
             <ProductWrapper flexWrapper>
-                {products.map((product) => (
-                    <FlexWrapper key={product}>
+                {hotProducts.map((hotProduct) => (
+                    <FlexWrapper key={hotProduct.id}>
                         <Card
-                            title={'ao thun'}
+                            title={hotProduct.name}
                             onClick={() => alert('say hi')}
-                            image={images.candytop}
-                            uppercase
-                            content={'200,000 VND'}
+                            image={hotProduct.thumbnail}
+                            textStyle={'capitalize'}
+                            content={`${hotProduct.price} VND`}
                         />
                     </FlexWrapper>
                 ))}
@@ -51,14 +50,14 @@ function Home() {
             <hr />
             <Title content={'hàng mới về'} rightContent={'Xem thêm...'} />
             <ProductWrapper flexWrapper>
-                {products.map((product) => (
-                    <FlexWrapper key={product}>
+                {newImports.map((newImport) => (
+                    <FlexWrapper key={newImport.id}>
                         <Card
-                            title={'ao thun'}
+                            title={newImport.name}
                             onClick={() => alert('say hi')}
-                            image={images.candytop}
-                            uppercase
-                            content={'200,000 VND'}
+                            image={newImport.thumbnail}
+                            textStyle={'capitalize'}
+                            content={`${newImport.price} VND`}
                         />
                     </FlexWrapper>
                 ))}

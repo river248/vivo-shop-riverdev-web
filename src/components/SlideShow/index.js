@@ -46,7 +46,7 @@ function SlideShow() {
                 if (slide.name === `slide${current + 1}`)
                     return (
                         <div key={slide.name} className={cx('container')}>
-                            <Image url={slides[current].url} alt={slides[current].name} />
+                            <Image src={slides[current].url} alt={slides[current].name} />
                         </div>
                     )
                 return <Fragment key={slide.name} />

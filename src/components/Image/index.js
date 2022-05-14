@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { forwardRef, useState } from 'react'
 import classNames from 'classnames/bind'
 
 import styles from './Image.module.scss'
+import images from '~/assets/images'
 
 const cx = classNames.bind(styles)
 
-function Image({ ratio = '', url, alt }) {
+const Image = forwardRef(({ src, alt, ratio = '', ...props }, ref) => {
+    const [fallback, setFallback] = useState('')
     const classes = cx('wrapper', {
         [ratio]: ratio,
     })
+    const handleError = () => {
+        setFallback(images.noImage)
+    }
     return (
         <div className={classes}>
-            <img src={url} alt={alt} />
+            <img ref={ref} src={src || fallback} alt={alt} {...props} onError={handleError} />
         </div>
     )
-}
+})
 
 export default Image
