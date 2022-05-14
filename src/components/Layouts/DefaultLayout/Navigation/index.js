@@ -4,32 +4,33 @@ import Tippy from '@tippyjs/react/headless'
 
 import styles from './Navigation.module.scss'
 import Button from '~/components/Button'
-import { Wrapper as PropperWrapper } from '~/components/Popper'
+import { Wrapper as PopperWrapper } from '~/components/Popper'
 
 const cx = classNames.bind(styles)
 
 function Navigation() {
     const navItems = [
+        { name: 'TRANG CHỦ', path: '/' },
         {
             name: 'ÁO',
             categories: [
-                { id: 'somi', name: 'Sơ mi' },
-                { id: 'aokieu', name: 'Áo kiểu' },
-                { id: 'thun', name: 'Áo thun' },
+                { id: 'somi', name: 'Sơ mi', path: '/top?type=somi' },
+                { id: 'aokieu', name: 'Áo kiểu', path: '/top?type=aokieu' },
+                { id: 'thun', name: 'Áo thun', path: '/top?type=aothun' },
             ],
         },
         {
             name: 'QUẦN',
             categories: [
-                { id: 'somi', name: 'Quần jean' },
-                { id: 'quankieu', name: 'Quần kiểu' },
+                { id: 'somi', name: 'Quần jean', pahth: '/bottom?type=jean' },
+                { id: 'quankieu', name: 'Quần kiểu', pahth: '/bottom?type=quankieu' },
             ],
         },
         {
             name: 'VÁY',
             categories: [
-                { id: 'chanvay', name: 'Chân váy' },
-                { id: 'dam', name: 'Đầm' },
+                { id: 'chanvay', name: 'Chân váy', path: '/bottom-girl?type=chanvay' },
+                { id: 'dam', name: 'Đầm', path: '/bottom-girl?type=dam' },
             ],
         },
         {
@@ -64,30 +65,21 @@ function Navigation() {
                             interactive
                             render={(attrs) => (
                                 <div className={cx('dropdown-menu')} tabIndex="-1" {...attrs}>
-                                    <PropperWrapper>
+                                    <PopperWrapper>
                                         {navItem.categories.map((category) => {
-                                            if (category.path) {
-                                                return (
-                                                    <div key={category.id} className={cx('menu-item')}>
-                                                        <Button
-                                                            size="large"
-                                                            className={cx('custom-dropdown-btn')}
-                                                            to={category.path}
-                                                        >
-                                                            {category.name}
-                                                        </Button>
-                                                    </div>
-                                                )
-                                            }
                                             return (
                                                 <div key={category.id} className={cx('menu-item')}>
-                                                    <Button size="large" className={cx('custom-dropdown-btn')}>
+                                                    <Button
+                                                        size="large"
+                                                        className={cx('custom-dropdown-btn')}
+                                                        to={category.path}
+                                                    >
                                                         {category.name}
                                                     </Button>
                                                 </div>
                                             )
                                         })}
-                                    </PropperWrapper>
+                                    </PopperWrapper>
                                 </div>
                             )}
                         >
