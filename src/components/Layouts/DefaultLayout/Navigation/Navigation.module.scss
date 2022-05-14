@@ -13,6 +13,11 @@
         padding: 0;
         justify-content: space-between;
         align-items: center;
+        overflow: hidden;
+
+        li {
+            position: relative;
+        }
 
         .custom-btn {
             font-weight: bold;
@@ -22,6 +27,16 @@
             color: var(--brown);
         }
     }
+}
+
+.current-page {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--darkbrown);
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
 }
 
 .dropdown-menu {
