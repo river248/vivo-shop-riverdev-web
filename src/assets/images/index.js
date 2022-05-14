@@ -7,6 +7,7 @@ const images = {
     slide1: require('~/assets/images/1.png'),
     slide2: require('~/assets/images/2.png'),
     slide3: require('~/assets/images/3.png'),
+    candytop: require('~/assets/images/candytop.jpg'),
 }
 
 export default images
