@@ -1,4 +1,5 @@
 import React from 'react'
+import ToTop from '~/components/ToTop'
 import Header from './Header'
 import SideContent from './SideContent'
 
@@ -8,7 +9,10 @@ function TipLayout({ children }) {
             <Header />
             <div className="container">
                 <SideContent />
-                <div className="content">{children}</div>
+                <div className="content">
+                    {children}
+                    <ToTop />
+                </div>
             </div>
         </div>
     )

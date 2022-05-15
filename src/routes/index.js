@@ -6,7 +6,9 @@ import Tip from '~/pages/Tip'
 
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/product', component: Product },
+    { path: '/product/top', component: Product },
+    { path: '/product/bottom', component: Product },
+    { path: '/product/bottom-girl', component: Product },
     { path: '/tip', component: Tip, layout: TipLayout },
 ]
 
