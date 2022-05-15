@@ -23,8 +23,7 @@ function Product() {
                             onClick={() => alert('say hi')}
                             image={somi.thumbnail}
                             textStyle={'capitalize'}
-                            content={`${somi.price} VND`}
-                        />
+                        >{`${somi.price} VND`}</Card>
                     </FlexWrapper>
                 ))}
             </ProductWrapper>

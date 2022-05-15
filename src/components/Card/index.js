@@ -9,7 +9,7 @@ import { storage } from '~/config/firebaseConfig'
 
 const cx = classNames.bind(styles)
 
-function Card({ image, title, content, textStyle = '', onClick }) {
+function Card({ image, title, textStyle = '', children, onClick }) {
     const [imageURL, setImageURL] = useState('')
     const _props = {
         onClick,
@@ -40,7 +40,7 @@ function Card({ image, title, content, textStyle = '', onClick }) {
             <Tippy placement="bottom-start" content={<span className={cx('tool-tip')}>{title}</span>}>
                 <div className={cx('title')}>{title}</div>
             </Tippy>
-            <div className={cx('content')}>{content}</div>
+            <div className={cx('content')}>{children}</div>
         </div>
     )
 }

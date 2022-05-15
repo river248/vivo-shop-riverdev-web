@@ -27,8 +27,9 @@ function Home() {
                             onClick={() => alert('say hi')}
                             image={newProduct.thumbnail}
                             textStyle={'capitalize'}
-                            content={`${newProduct.price} VND`}
-                        />
+                        >
+                            {`${newProduct.price} VND`}
+                        </Card>
                     </FlexWrapper>
                 ))}
             </ProductWrapper>
@@ -42,8 +43,9 @@ function Home() {
                             onClick={() => alert('say hi')}
                             image={hotProduct.thumbnail}
                             textStyle={'capitalize'}
-                            content={`${hotProduct.price} VND`}
-                        />
+                        >
+                            {`${hotProduct.price} VND`}
+                        </Card>
                     </FlexWrapper>
                 ))}
             </ProductWrapper>
@@ -57,8 +59,9 @@ function Home() {
                             onClick={() => alert('say hi')}
                             image={newImport.thumbnail}
                             textStyle={'capitalize'}
-                            content={`${newImport.price} VND`}
-                        />
+                        >
+                            {`${newImport.price} VND`}
+                        </Card>
                     </FlexWrapper>
                 ))}
             </ProductWrapper>
