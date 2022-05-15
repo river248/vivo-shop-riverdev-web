@@ -6,9 +6,10 @@ import images from '~/assets/images'
 
 const cx = classNames.bind(styles)
 
-const Image = forwardRef(({ src, alt, ratio = '', ...props }, ref) => {
+const Image = forwardRef(({ src, alt, ratio = '', className, ...props }, ref) => {
     const [fallback, setFallback] = useState('')
     const classes = cx('wrapper', {
+        [className]: className,
         [ratio]: ratio,
     })
     const handleError = () => {

@@ -11,12 +11,15 @@
     box-shadow: 3px 3px 6px var(--box-shadow);
     overflow: hidden;
     position: relative;
+    border-radius: var(--radius-lg);
 }
 
 .container {
     width: calc(100% - 40px);
     height: 360px;
     animation: slideAppear 0.8s ease-in-out;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
 }
 
 .dot {

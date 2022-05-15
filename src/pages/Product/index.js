@@ -13,7 +13,6 @@ const cx = classNames.bind(styles)
 function Product() {
     return (
         <div className={cx('wrapper')}>
-            {' '}
             <Title content={'áo sơ mi'} />
             <ProductWrapper flexWrapper>
                 {somis.map((somi) => (
@@ -27,7 +26,7 @@ function Product() {
                     </FlexWrapper>
                 ))}
             </ProductWrapper>
-            <Button primary>Xem thêm...</Button>
+            <Button text>Xem thêm...</Button>
         </div>
     )
 }
