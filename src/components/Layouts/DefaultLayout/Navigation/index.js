@@ -14,22 +14,22 @@ const navItems = [
     {
         name: 'ÁO',
         categories: [
-            { id: 'somi', name: 'Sơ mi', path: '/product/top?type=somi' },
-            { id: 'aokieu', name: 'Áo kiểu', path: '/product/top?type=aokieu' },
-            { id: 'thun', name: 'Áo thun', path: '/product/top?type=aothun' },
+            { id: 'somi', name: 'Sơ mi', path: '/product/top?type=ao-so-mi' },
+            { id: 'aokieu', name: 'Áo kiểu', path: '/product/top?type=ao-kieu' },
+            { id: 'thun', name: 'Áo thun', path: '/product/top?type=ao-thun' },
         ],
     },
     {
         name: 'QUẦN',
         categories: [
-            { id: 'somi', name: 'Quần jean', path: '/product/bottom?type=jean' },
-            { id: 'quankieu', name: 'Quần kiểu', path: '/product/bottom?type=quankieu' },
+            { id: 'somi', name: 'Quần jean', path: '/product/bottom?type=quan-jean' },
+            { id: 'quankieu', name: 'Quần kiểu', path: '/product/bottom?type=quan-kieu' },
         ],
     },
     {
         name: 'VÁY',
         categories: [
-            { id: 'chanvay', name: 'Chân váy', path: '/product/bottom-girl?type=chanvay' },
+            { id: 'chanvay', name: 'Chân váy', path: '/product/bottom-girl?type=chan-vay' },
             { id: 'dam', name: 'Đầm', path: '/product/bottom-girl?type=dam' },
         ],
     },
@@ -41,7 +41,7 @@ const navItems = [
             { id: 'tip3', name: 'Tips phối màu đỉnh', path: '/tip/3' },
         ],
     },
-    { name: 'GIỚI THIỆU', path: '/introduce' },
+    { name: 'GIỚI THIỆU', path: '/about' },
     { name: 'LIÊN HỆ', path: '/contact' },
 ]
 

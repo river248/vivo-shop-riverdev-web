@@ -9,6 +9,8 @@ const images = {
     slide3: require('~/assets/images/3.png'),
     candytop: require('~/assets/images/candytop.jpg'),
     noImage: require('~/assets/images/no-image.png'),
+    aboutHeader: require('~/assets/images/about-header.png'),
+    aboutAside: require('~/assets/images/about-aside.jpg'),
 }
 
 export default images

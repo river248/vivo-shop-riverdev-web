@@ -9,7 +9,7 @@ import { storage } from '~/config/firebaseConfig'
 
 const cx = classNames.bind(styles)
 
-function Card({ image, title, textStyle = '', children, onClick }) {
+function Card({ image, ratio = 'ratio3x4', title, textStyle = '', className, children, onClick }) {
     const [imageURL, setImageURL] = useState('')
     const _props = {
         onClick,
@@ -18,13 +18,12 @@ function Card({ image, title, textStyle = '', children, onClick }) {
     useEffect(() => {
         let isSubcribe = true
 
-        if (image)
+        if (image && !image?.includes('/static'))
             getDownloadURL(ref(storage, `${image}`))
                 .then((url) => {
                     if (isSubcribe) setImageURL(url)
                 })
                 .catch((error) => console.log(error))
-
         return () => {
             setImageURL('')
             isSubcribe = false
@@ -32,11 +31,20 @@ function Card({ image, title, textStyle = '', children, onClick }) {
     }, [image])
 
     const classes = cx('wrapper', {
+        [className]: className,
         [textStyle]: textStyle,
     })
     return (
         <div className={classes} {..._props}>
-            {image && <Image ratio="ratio3x4" src={imageURL} alt={'candytop'} />}
+            {image && (
+                <>
+                    {!image.includes('/static') ? (
+                        <Image ratio={ratio} src={imageURL} alt={'candytop'} />
+                    ) : (
+                        <Image ratio={ratio} src={image} alt={'candytop'} />
+                    )}
+                </>
+            )}
             <Tippy placement="bottom-start" content={<span className={cx('tool-tip')}>{title}</span>}>
                 <div className={cx('title')}>{title}</div>
             </Tippy>
@@ -45,4 +53,4 @@ function Card({ image, title, textStyle = '', children, onClick }) {
     )
 }
 
-export default Card
+export default React.memo(Card)
