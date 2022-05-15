@@ -21,3 +21,21 @@ export const newImports = [
     { id: 'newimport4', name: 'Linen Shirt', thumbnail: '/general/linenshirt.jpg', price: '195,000' },
     { id: 'newimport5', name: 'Edging Jacket', thumbnail: '/general/edging.jpg', price: '160,000' },
 ]
+
+export const somis = [
+    { id: 'somi1', name: 'Back To School Shirt', thumbnail: '/somi/backtoschool.jpg', price: '190,000' },
+    { id: 'somi2', name: 'Sơ Mi Caro', thumbnail: '/somi/caro.jpg', price: '190,000' },
+    { id: 'somi3', name: 'Casso Shirt', thumbnail: '/somi/casso.jpg', price: '240,000' },
+    { id: 'somi4', name: 'Ciel Shirt', thumbnail: '/somi/ciel.jpg', price: '195,000' },
+    { id: 'somi5', name: 'Classic Shirt', thumbnail: '/somi/classic.jpg', price: '160,000' },
+    { id: 'somi6', name: 'Sơ Mi Cổ Vest', thumbnail: '/somi/covest.jpg', price: '190,000' },
+    { id: 'somi7', name: 'Sơ Mi Caro Dệt Nổi', thumbnail: '/somi/detnoi.jpg', price: '190,000' },
+    { id: 'somi8', name: 'Edging Shirt', thumbnail: '/somi/edging.jpg', price: '240,000' },
+    { id: 'somi9', name: 'Elena Shirt', thumbnail: '/somi/elena.jpg', price: '195,000' },
+    { id: 'somi10', name: 'Sơ Mi Thêu Hoạ Tiết', thumbnail: '/somi/hoatiet.jpg', price: '160,000' },
+    { id: 'newimport11', name: 'Sơ Mi Kiểu', thumbnail: '/somi/kieu.jpg', price: '190,000' },
+    { id: 'newimport12', name: 'Layla Shirt', thumbnail: '/somi/layla.jpg', price: '190,000' },
+    { id: 'newimport13', name: 'Linen Shirt', thumbnail: '/somi/linenshirt.jpg', price: '240,000' },
+    { id: 'newimport14', name: 'Sơ Mi Lụa', thumbnail: '/somi/lua.jpg', price: '195,000' },
+    { id: 'newimport15', name: 'Sơ Mi Lụa Tay Kiểu', thumbnail: '/somi/luataykieu.jpg', price: '160,000' },
+]
