@@ -1,9 +1,13 @@
-.container {
+.wrapper {
+    padding: 20px 0;
+}
+
+.container,
+.login-container {
     display: flex;
     width: calc(100% - 40px);
-    height: calc(100vh - 40px);
+    padding: 20px 0;
     margin: auto;
-    margin-top: 20px;
     background: linear-gradient(-235deg, #5e72eb, #fdc094);
     box-shadow: 2px 2px 6px var(--box-shadow);
     border-radius: var(--radius-xl);
@@ -16,9 +20,13 @@
     }
 }
 
+.login-container {
+    height: calc(100vh - 40px);
+}
+
 .box {
     background-color: #ecf0f3;
-    padding: 30px 40px 30px 40px;
+    padding: 30px 35px 30px 35px;
     min-width: 300px;
     max-width: 380px;
     width: 100%;
@@ -45,11 +53,15 @@
 }
 
 .account-btn {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 
     & + .account-btn {
         margin-left: 0;
     }
+}
+
+.account-txt-btn {
+    padding: 0;
 }
 
 .other-login {
@@ -89,4 +101,7 @@
     &:hover {
         color: #000;
     }
+}
+
+@media screen and (min-h) {
 }
