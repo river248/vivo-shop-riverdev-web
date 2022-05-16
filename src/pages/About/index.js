@@ -32,7 +32,7 @@ const supports = [
 const members = [
     { id: 1, name: 'đào đại dương' },
     { id: 2, name: 'phạm viết chiến' },
-    { id: 3, name: 'đào đại dương' },
+    { id: 3, name: 'phạm minh nhi' },
 ]
 
 function About() {
@@ -71,10 +71,10 @@ function About() {
                     <div key={index} className={cx('support-item')}>
                         <div className={cx('icon')}>{support.icon}</div>
                         <Card
-                            className={cx('support-content')}
                             title={support.title}
                             textStyle={'capitalize'}
                             textAlign={'text-center'}
+                            className={cx('support-content')}
                         >
                             <p>{support.content}</p>
                         </Card>

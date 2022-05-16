@@ -83,7 +83,7 @@ function Account() {
     }
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('container')}>
+            <div className={location.pathname === '/login' ? cx('login-container') : cx('container')}>
                 <div className={cx('box')}>
                     <h1>{location.pathname === '/login' ? 'Đăng nhập' : 'Đăng ký'}</h1>
                     <form onSubmit={(e) => e.preventDefault} className={cx('account-form')}>
@@ -169,20 +169,20 @@ function Account() {
                     </div>
 
                     {location.pathname === '/login' && (
-                        <Button text className={cx('account-btn')}>
+                        <Button text className={cx('account-btn', 'account-txt-btn')}>
                             Quên mật khẩu?
                         </Button>
                     )}
                     <Button
                         onClick={handleResetValue}
                         to={location.pathname === '/login' ? '/signup' : '/login'}
-                        className={cx('account-btn')}
+                        className={cx('account-btn', 'account-txt-btn')}
                     >
                         {location.pathname === '/login'
                             ? 'Bạn chưa có tài khoản? Đăng ký ngay!'
                             : 'Bạn đã có tài khoản? Đăng nhập ngay!'}
                     </Button>
-                    <Button to={'/'} className={cx('account-btn')}>
+                    <Button to={'/'} className={cx('account-btn', 'account-txt-btn')}>
                         Về trang chủ
                     </Button>
                 </div>
