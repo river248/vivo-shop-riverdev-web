@@ -46,16 +46,16 @@ function Account() {
     const handleBlur = (inp) => {
         switch (inp) {
             case 'name':
-                setNameErr(err)
+                name ? setNameErr('') : setNameErr(err)
                 break
             case 'phone':
-                setPhoneErr(err)
+                phone ? setPhoneErr('') : setPhoneErr(err)
                 break
             case 'password':
-                setPasswordErr(err)
+                password ? setPasswordErr('') : setPasswordErr(err)
                 break
             case 'confirm':
-                setConfirmPasswordErr(err)
+                confirmPassword ? setConfirmPasswordErr('') : setConfirmPasswordErr(err)
                 break
             default:
                 break
@@ -94,7 +94,7 @@ function Account() {
                                     className={cx('account-input')}
                                     placeholder="Tên"
                                     size="xl-size"
-                                    shadow="inner"
+                                    primary
                                     onFocus={() => handleFocus('name')}
                                     onBlur={() => handleBlur('name')}
                                     onChange={(e) => setName(e.target.value)}
@@ -109,7 +109,7 @@ function Account() {
                                 placeholder="Số điện thoại"
                                 type="number"
                                 size="xl-size"
-                                shadow="inner"
+                                primary
                                 onFocus={() => handleFocus('phone')}
                                 onBlur={() => handleBlur('phone')}
                                 onChange={(e) => setPhone(e.target.value)}
@@ -123,7 +123,7 @@ function Account() {
                                 type="password"
                                 placeholder="Mật khẩu"
                                 size="xl-size"
-                                shadow="inner"
+                                primary
                                 onFocus={() => handleFocus('password')}
                                 onBlur={() => handleBlur('password')}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -138,7 +138,7 @@ function Account() {
                                     type="password"
                                     placeholder="Xác nhận mật khẩu"
                                     size="xl-size"
-                                    shadow="inner"
+                                    primary
                                     onFocus={() => handleFocus('confirm')}
                                     onBlur={() => handleBlur('confirm')}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
