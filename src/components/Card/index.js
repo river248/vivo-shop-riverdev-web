@@ -7,7 +7,7 @@ import Image from '~/components/Image'
 
 const cx = classNames.bind(styles)
 
-function Card({ image, ratio = 'ratio3x4', title, textStyle = '', className, children, onClick }) {
+function Card({ image, ratio = 'ratio3x4', title, textStyle = '', textAlign = '', className, children, onClick }) {
     const _props = {
         onClick,
     }
@@ -15,6 +15,7 @@ function Card({ image, ratio = 'ratio3x4', title, textStyle = '', className, chi
     const classes = cx('wrapper', {
         [className]: className,
         [textStyle]: textStyle,
+        [textAlign]: textAlign,
     })
     return (
         <div className={classes} {..._props}>
