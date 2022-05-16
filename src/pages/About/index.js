@@ -70,8 +70,14 @@ function About() {
                 {supports.map((support, index) => (
                     <div key={index} className={cx('support-item')}>
                         <div className={cx('icon')}>{support.icon}</div>
-                        <h3 className={cx('title')}>{support.title}</h3>
-                        <p>{support.content}</p>
+                        <Card
+                            className={cx('support-content')}
+                            title={support.title}
+                            textStyle={'capitalize'}
+                            textAlign={'text-center'}
+                        >
+                            <p>{support.content}</p>
+                        </Card>
                     </div>
                 ))}
             </Wrapper>
@@ -79,7 +85,13 @@ function About() {
             <Wrapper className={cx('our-team-container')} flexWrapper>
                 {members.map((member) => (
                     <div key={member.id} className={cx('member')}>
-                        <Card image={images.candytop} ratio={'ratio1x1'} title={member.name} textStyle={'capitalize'}>
+                        <Card
+                            image={images.candytop}
+                            ratio={'ratio1x1'}
+                            title={member.name}
+                            textStyle={'capitalize'}
+                            textAlign={'text-center'}
+                        >
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, debitis! Lorem ipsum
                                 dolor sit amet, consectetur adipisicing elit. Iste, debitis!

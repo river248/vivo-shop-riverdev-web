@@ -6,14 +6,6 @@
     background-color: var(--secondary);
 }
 
-.uppercase {
-    text-transform: uppercase;
-}
-
-.capitalize {
-    text-transform: capitalize;
-}
-
 .title,
 .content {
     padding: 5px;
@@ -60,4 +52,21 @@
         left: 10px;
         z-index: -1;
     }
+}
+
+//Text Style
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
 }
