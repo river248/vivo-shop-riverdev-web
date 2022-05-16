@@ -11,6 +11,7 @@ const images = {
     noImage: require('~/assets/images/no-image.png'),
     aboutHeader: require('~/assets/images/about-header.png'),
     aboutAside: require('~/assets/images/about-aside.jpg'),
+    contact: require('~/assets/images/contact.png'),
 }
 
 export default images
