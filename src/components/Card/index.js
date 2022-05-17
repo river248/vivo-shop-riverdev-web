@@ -20,7 +20,7 @@ function Card({ image, ratio = 'ratio3x4', title, textStyle = '', textAlign = ''
     return (
         <div className={classes} {..._props}>
             {image && <Image ratio={ratio} src={image} alt={title} />}
-            <Tippy placement="bottom-start" content={<span className={cx('tool-tip')}>{title}</span>}>
+            <Tippy placement="bottom" content={<span className={cx('tool-tip')}>{title}</span>}>
                 <div className={cx('title')}>{title}</div>
             </Tippy>
             <div className={cx('content')}>{children}</div>
