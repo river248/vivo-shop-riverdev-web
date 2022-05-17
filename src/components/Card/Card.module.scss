@@ -1,5 +1,7 @@
 .wrapper {
-    min-width: 220px;
+    width: 100%;
+    min-width: 160px;
+    max-width: 320px;
     border-radius: var(--radius-sm);
     box-shadow: 2px 2px 4px var(--box-shadow);
     overflow: hidden;
@@ -8,7 +10,8 @@
 
 .title,
 .content {
-    padding: 5px;
+    padding: 0 5px;
+    padding-top: 5px;
     user-select: none;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -16,25 +19,28 @@
 }
 
 .title {
-    line-clamp: 2;
-    -webkit-line-clamp: 2;
-    font-size: 2rem;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 .content {
+    padding-bottom: 5px;
     line-clamp: 5;
     -webkit-line-clamp: 5;
     text-align: justify;
+    font-size: 1.6rem;
 }
 
 .tool-tip {
     background-color: #000;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 100;
     color: #fff;
     padding: 5px;
     border-radius: var(--radius-sm);
-    margin-top: -10px;
+    margin-top: -6px;
     width: 100%;
     display: block;
     position: relative;

@@ -17,17 +17,57 @@
 //Flex Item
 .flex-item-wrapper {
     padding: 15px 10px;
+    width: 100%;
+}
+
+@media screen and (min-width: 375px) {
+    @for $col from 1 to 12 {
+        .col-xxs-#{$col} {
+            width: calc($col/12 * 100%);
+        }
+    }
+}
+
+@media screen and (min-width: 486px) {
+    .flex-item-wrapper {
+        width: 50%;
+    }
+    @for $col from 1 to 12 {
+        .col-xs-#{$col} {
+            width: calc($col/12 * 100%);
+        }
+    }
+}
+
+@media screen and (min-width: 576px) {
+    @for $col from 1 to 12 {
+        .col-sm-#{$col} {
+            width: calc($col/12 * 100%);
+        }
+    }
 }
 
 @media screen and (min-width: 768px) {
     .flex-item-wrapper {
         width: calc(1 / 3 * 100%);
     }
+
+    @for $col from 1 to 12 {
+        .col-md-#{$col} {
+            width: calc($col/12 * 100%);
+        }
+    }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
     .flex-item-wrapper {
         width: 25%;
+    }
+
+    @for $col from 1 to 12 {
+        .col-lg-#{$col} {
+            width: calc($col/12 * 100%);
+        }
     }
 }
 
@@ -35,16 +75,18 @@
     .flex-item-wrapper {
         width: 20%;
     }
-}
 
-@media screen and (max-width: 768px) {
-    .flex-item-wrapper {
-        width: 50%;
+    @for $col from 1 to 12 {
+        .col-xl-#{$col} {
+            width: calc($col/12 * 100%);
+        }
     }
 }
 
-@media screen and (max-width: 576px) {
-    .flex-item-wrapper {
-        width: 100%;
+@media screen and (min-width: 1400px) {
+    @for $col from 1 to 12 {
+        .col-xxl-#{$col} {
+            width: calc($col/12 * 100%);
+        }
     }
 }
