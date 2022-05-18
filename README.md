@@ -1,7 +1,7 @@
 //Initialize with new project
 
 1. npm i customize-cra react-app-rewired -D
-2. Create file named config-override.js
+2. Create file named config-overrides.js
    /_ eslint-disable react-hooks/rules-of-hooks _/
    const { override, useBabelRc } = require('customize-cra')
 
