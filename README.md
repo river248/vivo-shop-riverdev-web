@@ -2,7 +2,7 @@
 
 1. npm i customize-cra react-app-rewired -D
 2. Create file named config-overrides.js
-   /_ eslint-disable react-hooks/rules-of-hooks _/
+   /* eslint-disable react-hooks/rules-of-hooks */
    const { override, useBabelRc } = require('customize-cra')
 
 module.exports = override(
