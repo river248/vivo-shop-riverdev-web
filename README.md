@@ -24,9 +24,9 @@ useBabelRc()
 6. Create file named jsconfig.json
    {
    "compilerOptions": {
-   "basUrl": ".",
+   "baseUrl": ".",
    "paths": {
-   "~/_": ["src/_"]
+   "~/*": ["src/_"]
    }
    }
    }
