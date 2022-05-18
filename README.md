@@ -26,7 +26,7 @@ useBabelRc()
    "compilerOptions": {
    "baseUrl": ".",
    "paths": {
-   "~/*": ["src/_"]
+   "~/*": ["src/*"]
    }
    }
    }
