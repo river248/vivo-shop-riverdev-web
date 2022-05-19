@@ -7,6 +7,7 @@ import images from '~/assets/images'
 import Image from '~/components/Image'
 import Input from '~/components/Input'
 import Button from '~/components/Button'
+import HeaderImage from '~/components/HeaderImage'
 
 const cx = classNames.bind(styles)
 
@@ -29,9 +30,7 @@ const contactMethods = [
 function Contact() {
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('image-container')}>
-                <Image src={images.contact} alt="Contact" />
-            </div>
+            <HeaderImage image={images.contact} alt={'Contact'} />
             <div className={cx('container')}>
                 <div className={cx('left-container')}>
                     <span className={cx('title')}>Gửi thắc mắc cho chúng tôi</span>

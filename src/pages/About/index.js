@@ -8,6 +8,7 @@ import { Wrapper } from '~/components/Popper'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLaughBeam, faLifeRing, faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import Card from '~/components/Card'
+import HeaderImage from '~/components/HeaderImage'
 
 const cx = classNames.bind(styles)
 
@@ -38,9 +39,7 @@ const members = [
 function About() {
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('image-container')}>
-                <Image src={images.aboutHeader} alt="About Us" />
-            </div>
+            <HeaderImage image={images.aboutHeader} alt={'About Us'} />
             <div className={cx('our-story')}>
                 <div className={cx('our-story-left')}>
                     <Image className={cx('image')} src={images.aboutAside} alt="Our Story" ratio="ratio3x4" />
