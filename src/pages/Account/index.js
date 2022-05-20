@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
@@ -82,112 +83,116 @@ function Account() {
         }
     }
     return (
-        <div className={cx('wrapper')}>
-            <div className={location.pathname === '/login' ? cx('login-container') : cx('container')}>
-                <div className={cx('box')}>
-                    <h1>{location.pathname === '/login' ? 'Đăng nhập' : 'Đăng ký'}</h1>
-                    <form onSubmit={(e) => e.preventDefault} className={cx('account-form')}>
-                        {location.pathname === '/signup' && (
+        <Fragment>
+            <Helmet>
+                <title>{location.pathname === '/login' ? 'Đăng Nhập' : 'Đăng Ký'}</title>
+            </Helmet>
+            <div className={cx('wrapper')}>
+                <div className={location.pathname === '/login' ? cx('login-container') : cx('container')}>
+                    <div className={cx('box')}>
+                        <h1>{location.pathname === '/login' ? 'Đăng nhập' : 'Đăng ký'}</h1>
+                        <form onSubmit={(e) => e.preventDefault} className={cx('account-form')}>
+                            {location.pathname === '/signup' && (
+                                <div className={cx('form-group')}>
+                                    <Input
+                                        value={name}
+                                        className={cx('account-input')}
+                                        placeholder="Tên"
+                                        size="xl-size"
+                                        primary
+                                        onFocus={() => handleFocus('name')}
+                                        onBlur={() => handleBlur('name')}
+                                        onChange={(e) => setName(e.target.value)}
+                                    />
+                                    {nameErr && <span>{nameErr}</span>}
+                                </div>
+                            )}
                             <div className={cx('form-group')}>
                                 <Input
-                                    value={name}
+                                    value={phone}
                                     className={cx('account-input')}
-                                    placeholder="Tên"
+                                    placeholder="Số điện thoại"
+                                    type="number"
                                     size="xl-size"
                                     primary
-                                    onFocus={() => handleFocus('name')}
-                                    onBlur={() => handleBlur('name')}
-                                    onChange={(e) => setName(e.target.value)}
+                                    onFocus={() => handleFocus('phone')}
+                                    onBlur={() => handleBlur('phone')}
+                                    onChange={(e) => setPhone(e.target.value)}
                                 />
-                                {nameErr && <span>{nameErr}</span>}
+                                {phoneErr && <span>{phoneErr}</span>}
                             </div>
-                        )}
-                        <div className={cx('form-group')}>
-                            <Input
-                                value={phone}
-                                className={cx('account-input')}
-                                placeholder="Số điện thoại"
-                                type="number"
-                                size="xl-size"
-                                primary
-                                onFocus={() => handleFocus('phone')}
-                                onBlur={() => handleBlur('phone')}
-                                onChange={(e) => setPhone(e.target.value)}
-                            />
-                            {phoneErr && <span>{phoneErr}</span>}
-                        </div>
-                        <div className={cx('form-group')}>
-                            <Input
-                                value={password}
-                                className={cx('account-input')}
-                                type="password"
-                                placeholder="Mật khẩu"
-                                size="xl-size"
-                                primary
-                                onFocus={() => handleFocus('password')}
-                                onBlur={() => handleBlur('password')}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            {passwordErr && <span>{passwordErr}</span>}
-                        </div>
-                        {location.pathname === '/signup' && (
                             <div className={cx('form-group')}>
                                 <Input
-                                    value={confirmPassword}
+                                    value={password}
                                     className={cx('account-input')}
                                     type="password"
-                                    placeholder="Xác nhận mật khẩu"
+                                    placeholder="Mật khẩu"
                                     size="xl-size"
                                     primary
-                                    onFocus={() => handleFocus('confirm')}
-                                    onBlur={() => handleBlur('confirm')}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    onFocus={() => handleFocus('password')}
+                                    onBlur={() => handleBlur('password')}
+                                    onChange={(e) => setPassword(e.target.value)}
                                 />
-                                {confirmPasswordErr && <span>{confirmPasswordErr}</span>}
+                                {passwordErr && <span>{passwordErr}</span>}
                             </div>
-                        )}
-                    </form>
-                    <Button primary className={cx('account-btn')} disabled={loading} onClick={handleSubmit}>
-                        {location.pathname === '/login' ? 'Đăng nhập' : 'Đăng ký'}
-                    </Button>
-                    <div className={cx('other-login')}>
-                        <span className={cx('title-or')}>OR</span>
-                        <Button
-                            primary
-                            className={cx('account-btn', 'facebook')}
-                            leftIcon={<FontAwesomeIcon icon={faFacebook} />}
-                        >
-                            Tiếp tục với Facebook
+                            {location.pathname === '/signup' && (
+                                <div className={cx('form-group')}>
+                                    <Input
+                                        value={confirmPassword}
+                                        className={cx('account-input')}
+                                        type="password"
+                                        placeholder="Xác nhận mật khẩu"
+                                        size="xl-size"
+                                        primary
+                                        onFocus={() => handleFocus('confirm')}
+                                        onBlur={() => handleBlur('confirm')}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                    />
+                                    {confirmPasswordErr && <span>{confirmPasswordErr}</span>}
+                                </div>
+                            )}
+                        </form>
+                        <Button primary className={cx('account-btn')} disabled={loading} onClick={handleSubmit}>
+                            {location.pathname === '/login' ? 'Đăng nhập' : 'Đăng ký'}
                         </Button>
+                        <div className={cx('other-login')}>
+                            <span className={cx('title-or')}>OR</span>
+                            <Button
+                                primary
+                                className={cx('account-btn', 'facebook')}
+                                leftIcon={<FontAwesomeIcon icon={faFacebook} />}
+                            >
+                                Tiếp tục với Facebook
+                            </Button>
+                            <Button
+                                primary
+                                className={cx('account-btn', 'google')}
+                                leftIcon={<FontAwesomeIcon icon={faGoogle} />}
+                            >
+                                Tiếp tục với Google
+                            </Button>
+                        </div>
+                        {location.pathname === '/login' && (
+                            <Button text className={cx('account-btn', 'account-txt-btn')}>
+                                Quên mật khẩu?
+                            </Button>
+                        )}
                         <Button
-                            primary
-                            className={cx('account-btn', 'google')}
-                            leftIcon={<FontAwesomeIcon icon={faGoogle} />}
+                            onClick={handleResetValue}
+                            to={location.pathname === '/login' ? '/signup' : '/login'}
+                            className={cx('account-btn', 'account-txt-btn')}
                         >
-                            Tiếp tục với Google
+                            {location.pathname === '/login'
+                                ? 'Bạn chưa có tài khoản? Đăng ký ngay!'
+                                : 'Bạn đã có tài khoản? Đăng nhập ngay!'}
+                        </Button>
+                        <Button to={'/'} className={cx('account-btn', 'account-txt-btn')}>
+                            Về trang chủ
                         </Button>
                     </div>
-
-                    {location.pathname === '/login' && (
-                        <Button text className={cx('account-btn', 'account-txt-btn')}>
-                            Quên mật khẩu?
-                        </Button>
-                    )}
-                    <Button
-                        onClick={handleResetValue}
-                        to={location.pathname === '/login' ? '/signup' : '/login'}
-                        className={cx('account-btn', 'account-txt-btn')}
-                    >
-                        {location.pathname === '/login'
-                            ? 'Bạn chưa có tài khoản? Đăng ký ngay!'
-                            : 'Bạn đã có tài khoản? Đăng nhập ngay!'}
-                    </Button>
-                    <Button to={'/'} className={cx('account-btn', 'account-txt-btn')}>
-                        Về trang chủ
-                    </Button>
                 </div>
             </div>
-        </div>
+        </Fragment>
     )
 }
 
