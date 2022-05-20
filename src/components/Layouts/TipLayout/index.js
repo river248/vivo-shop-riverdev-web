@@ -15,7 +15,7 @@ function TipLayout({ children }) {
         <div className={cx('wrapper')}>
             <HeaderImage className={cx('header-image')} image={images.tipBanner} alt={'Tip Banner'} />
             <Wrapper flexWrapper>
-                <FlexWrapper xxl={9} xl={9} lg={9} md={8} sm={6}>
+                <FlexWrapper className={cx('content')} xxl={9} xl={9} lg={9} md={8} sm={6}>
                     {children}
                 </FlexWrapper>
                 <FlexWrapper xxl={3} xl={3} lg={3} md={4} sm={6}>
