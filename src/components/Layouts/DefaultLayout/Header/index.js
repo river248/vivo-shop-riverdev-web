@@ -1,12 +1,13 @@
 import React from 'react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
 import styles from './Header.module.scss'
 import images from '~/assets/images'
 import Button from '~/components/Button'
+import Search from '../../components/Search'
 
 const cx = classNames.bind(styles)
 
@@ -29,12 +30,7 @@ function Header() {
                     </Button>
                 </div>
                 <div className={cx('left-container-footer')}>
-                    <div className={cx('left-container-search')}>
-                        <input type="text" placeholder="Tìm kiếm sản phẩm" />
-                        <button>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </button>
-                    </div>
+                    <Search />
 
                     <button onClick={() => navigate('/cart')}>
                         <FontAwesomeIcon icon={faCartShopping} />
