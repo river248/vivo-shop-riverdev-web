@@ -18,7 +18,7 @@ const publicRoutes = [
     { path: '/product/bottom', component: Product },
     { path: '/product/bottom-girl', component: Product },
     { path: '/return-policy', component: ReturnPolicy },
-    { path: '/tip', component: Tip, layout: TipLayout },
+    { path: '/tip/*', component: Tip, layout: TipLayout },
 ]
 
 const privateRoutes = []

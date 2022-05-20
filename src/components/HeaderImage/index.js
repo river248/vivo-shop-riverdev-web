@@ -6,9 +6,12 @@ import Image from '~/components/Image'
 
 const cx = classNames.bind(styles)
 
-function HeaderImage({ image, alt }) {
+function HeaderImage({ image, alt, className }) {
+    const classes = cx('wrapper', {
+        [className]: className,
+    })
     return (
-        <div className={cx('wrapper')}>
+        <div className={classes}>
             <Image src={image} alt={alt} />
         </div>
     )
