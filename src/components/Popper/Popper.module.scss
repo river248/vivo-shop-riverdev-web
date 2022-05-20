@@ -3,7 +3,21 @@
     background-color: var(--darkwhite);
     border-radius: var(--radius-sm);
     box-shadow: 0px 2px 12px var(--box-shadow);
-    overflow: hidden;
+    overflow: auto;
+    min-height: 50px;
+    max-height: min((100vh - 96px) - 60px, 734px);
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 4px;
+    }
 }
 
 .flexWrapper {
@@ -12,6 +26,9 @@
     box-shadow: unset;
     flex-wrap: wrap;
     background-color: unset;
+    max-height: unset;
+    min-height: unset;
+    overflow: hidden;
 }
 
 //Flex Item
