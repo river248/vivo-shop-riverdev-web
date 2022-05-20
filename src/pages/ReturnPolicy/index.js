@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import classNames from 'classnames/bind'
+import { Helmet } from 'react-helmet-async'
 
 import styles from './ReturnPolicy.module.scss'
 import Title from '~/components/Title'
@@ -66,29 +67,34 @@ const policies = [
 ]
 function ReturnPolicy() {
     return (
-        <div className={cx('wrapper')}>
-            <Title content={'Chính sách đổi trả'} />
-            <h2>VivoShop nhận đổi trả sản phẩm với các quy định sau:</h2>
-            <div className={cx('container')}>
-                {policies.map((policy) => (
-                    <Wrapper key={policy.id} flexWrapper>
-                        <FlexWrapper xxl={2} xl={2} lg={2} md={2}>
-                            <div className={cx('image-container')}>
-                                <Image
-                                    className={cx('image')}
-                                    ratio={'ratio1x1'}
-                                    src={policy.image}
-                                    alt={`Chính sách đổi trả ${policy.id}`}
-                                />
-                            </div>
-                        </FlexWrapper>
-                        <FlexWrapper xxl={10} xl={10} lg={10} md={10} className={cx('content')}>
-                            {policy.content}
-                        </FlexWrapper>
-                    </Wrapper>
-                ))}
+        <Fragment>
+            <Helmet>
+                <title>Chính Sách Đổi Trả</title>
+            </Helmet>
+            <div className={cx('wrapper')}>
+                <Title content={'Chính sách đổi trả'} />
+                <h2>VivoShop nhận đổi trả sản phẩm với các quy định sau:</h2>
+                <div className={cx('container')}>
+                    {policies.map((policy) => (
+                        <Wrapper key={policy.id} flexWrapper>
+                            <FlexWrapper xxl={2} xl={2} lg={2} md={2}>
+                                <div className={cx('image-container')}>
+                                    <Image
+                                        className={cx('image')}
+                                        ratio={'ratio1x1'}
+                                        src={policy.image}
+                                        alt={`Chính sách đổi trả ${policy.id}`}
+                                    />
+                                </div>
+                            </FlexWrapper>
+                            <FlexWrapper xxl={10} xl={10} lg={10} md={10} className={cx('content')}>
+                                {policy.content}
+                            </FlexWrapper>
+                        </Wrapper>
+                    ))}
+                </div>
             </div>
-        </div>
+        </Fragment>
     )
 }
 
