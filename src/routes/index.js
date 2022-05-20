@@ -7,10 +7,12 @@ import Home from '~/pages/Home'
 import ReturnPolicy from '~/pages/ReturnPolicy'
 import Product from '~/pages/Product'
 import Tip from '~/pages/Tip'
+import Cart from '~/pages/Cart'
 
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
+    { path: '/cart', component: Cart },
     { path: '/contact', component: Contact },
     { path: '/login', component: Account, layout: null },
     { path: '/signup', component: Account, layout: null },

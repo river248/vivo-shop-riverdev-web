@@ -18,6 +18,7 @@ const images = {
     policy4: require('~/assets/images/policy4.png'),
     policy6: require('~/assets/images/policy6.png'),
     tipBanner: require('~/assets/images/tip-banner.png'),
+    cartBanner: require('~/assets/images/cart-banner.png'),
 }
 
 export default images
