@@ -39,3 +39,13 @@ export const somis = [
     { id: 'newimport14', name: 'Sơ Mi Lụa', thumbnail: '/somi/lua.jpg', price: '195,000' },
     { id: 'newimport15', name: 'Sơ Mi Lụa Tay Kiểu', thumbnail: '/somi/luataykieu.jpg', price: '160,000' },
 ]
+
+export const cart = [
+    {
+        product: { id: 'somi1', name: 'Back To School Shirt', thumbnail: '/somi/backtoschool.jpg', price: 19000 },
+        quantity: 1,
+    },
+    { product: { id: 'somi2', name: 'Sơ Mi Caro', thumbnail: '/somi/caro.jpg', price: 190005 }, quantity: 2 },
+    { product: { id: 'somi3', name: 'Casso Shirt', thumbnail: '/somi/casso.jpg', price: 240015 }, quantity: 3 },
+    { product: { id: 'somi4', name: 'Ciel Shirt', thumbnail: '/somi/ciel.jpg', price: 195999 }, quantity: 4 },
+]
