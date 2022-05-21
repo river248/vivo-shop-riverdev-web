@@ -57,6 +57,16 @@
     }
 }
 
+.quantity-product {
+    position: absolute;
+    top: 13px;
+    left: 58%;
+    transform: translateX(-50%);
+    background-color: var(--lightpink);
+    padding: 2px 4px;
+    border-radius: 999px;
+}
+
 @media screen and (max-width: 992px) {
     .wrapper {
         flex-direction: column;

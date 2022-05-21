@@ -9,6 +9,7 @@ import { somis } from '~/data'
 import { Wrapper as ProductWrapper, FlexWrapper } from '~/components/Popper'
 import Button from '~/components/Button'
 import { useQuery } from '~/hooks'
+import { formatMoney } from '~/utils'
 
 const cx = classNames.bind(styles)
 
@@ -42,7 +43,7 @@ function Product() {
                                 // onClick={() => alert('say hi')}
                                 image={somi.thumbnail}
                                 textStyle={'capitalize'}
-                            >{`${somi.price} VND`}</Card>
+                            >{`${formatMoney(somi.price)} VND`}</Card>
                         </FlexWrapper>
                     ))}
                 </ProductWrapper>

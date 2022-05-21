@@ -10,6 +10,7 @@ import SlideShow from '~/components/SlideShow'
 import Card from '~/components/Card'
 import { hotProducts, newImports, newProducts } from '~/data'
 import convertLink from '~/utils/convertLink'
+import { formatMoney } from '~/utils'
 
 const cx = classNames.bind(styles)
 
@@ -35,7 +36,7 @@ function Home() {
                                 image={newProduct.thumbnail}
                                 textStyle={'capitalize'}
                             >
-                                {`${newProduct.price} VND`}
+                                {`${formatMoney(newProduct.price)} VND`}
                             </Card>
                         </FlexWrapper>
                     ))}
@@ -52,7 +53,7 @@ function Home() {
                                 image={hotProduct.thumbnail}
                                 textStyle={'capitalize'}
                             >
-                                {`${hotProduct.price} VND`}
+                                {`${formatMoney(hotProduct.price)} VND`}
                             </Card>
                         </FlexWrapper>
                     ))}
@@ -69,7 +70,7 @@ function Home() {
                                 image={newImport.thumbnail}
                                 textStyle={'capitalize'}
                             >
-                                {`${newImport.price} VND`}
+                                {`${formatMoney(newImport.price)} VND`}
                             </Card>
                         </FlexWrapper>
                     ))}
