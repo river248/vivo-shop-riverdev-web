@@ -4,11 +4,11 @@ import classNames from 'classnames/bind'
 import styles from './DetailedProduct.module.scss'
 import { FlexWrapper, Wrapper, Wrapper as ProductWrapper } from '~/components/Popper'
 import Image from '~/components/Image'
-import images from '~/assets/images'
 import Button from '~/components/Button'
 import { newImports } from '~/data'
 import Card from '~/components/Card'
 import convertLink from '~/utils/convertLink'
+import { addToCart } from '~/apollo/cartApollo'
 
 const cx = classNames.bind(styles)
 
@@ -18,13 +18,13 @@ function DetailedProduct() {
             <Wrapper flexWrapper>
                 <FlexWrapper xxl={3} xl={3} lg={3}>
                     <div className={cx('image')}>
-                        <Image src={images.candytop} ratio="ratio3x4" alt="image" />
+                        <Image src={newImports[0].thumbnail} ratio="ratio3x4" alt="image" />
                     </div>
                 </FlexWrapper>
                 <FlexWrapper xxl={9} xl={9} lg={9} className={cx('container')}>
                     <div className={cx('header')}>
-                        <h2>Áo Thun Gấu Nâu</h2>
-                        <h3>139,000 VND</h3>
+                        <h2>{newImports[0].name}</h2>
+                        <h3>{newImports[0].price} VND</h3>
                     </div>
                     <div className={cx('content')}>
                         Áo Thun được thiết kế in hình gấu nâu tạo điểm nhấn. <br />
@@ -41,7 +41,9 @@ function DetailedProduct() {
                             <input id="sizeL" type={'checkbox'} />
                             <label htmlFor="sizeL">Size L</label>
                         </div>
-                        <Button primary>Thêm vào giỏ hàng</Button>
+                        <Button primary onClick={() => addToCart(newImports[0], 1)}>
+                            Thêm vào giỏ hàng
+                        </Button>
                     </div>
                 </FlexWrapper>
             </Wrapper>
