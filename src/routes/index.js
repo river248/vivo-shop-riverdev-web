@@ -8,12 +8,14 @@ import ReturnPolicy from '~/pages/ReturnPolicy'
 import Product from '~/pages/Product'
 import Tip from '~/pages/Tip'
 import Cart from '~/pages/Cart'
+import DetailedProduct from '~/pages/DetailedProduct'
 
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/about', component: About },
     { path: '/cart', component: Cart },
     { path: '/contact', component: Contact },
+    { path: '/detailed', component: DetailedProduct },
     { path: '/login', component: Account, layout: null },
     { path: '/signup', component: Account, layout: null },
     { path: '/product/top', component: Product },

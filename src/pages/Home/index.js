@@ -9,6 +9,7 @@ import { Wrapper as ProductWrapper, FlexWrapper } from '~/components/Popper'
 import SlideShow from '~/components/SlideShow'
 import Card from '~/components/Card'
 import { hotProducts, newImports, newProducts } from '~/data'
+import convertLink from '~/utils/convertLink'
 
 const cx = classNames.bind(styles)
 
@@ -28,8 +29,9 @@ function Home() {
                     {newProducts.map((newProduct) => (
                         <FlexWrapper key={newProduct.id}>
                             <Card
+                                to={`/detailed?product=${convertLink(newProduct.name)}`}
                                 title={newProduct.name}
-                                onClick={() => alert('say hi')}
+                                // onClick={() => console.log(convertLink(newProduct.name))}
                                 image={newProduct.thumbnail}
                                 textStyle={'capitalize'}
                             >
@@ -44,8 +46,9 @@ function Home() {
                     {hotProducts.map((hotProduct) => (
                         <FlexWrapper key={hotProduct.id}>
                             <Card
+                                to={`/detailed?product=${convertLink(hotProduct.name)}`}
                                 title={hotProduct.name}
-                                onClick={() => alert('say hi')}
+                                // onClick={() => alert('say hi')}
                                 image={hotProduct.thumbnail}
                                 textStyle={'capitalize'}
                             >
@@ -60,8 +63,9 @@ function Home() {
                     {newImports.map((newImport) => (
                         <FlexWrapper key={newImport.id}>
                             <Card
+                                to={`/detailed?product=${convertLink(newImport.name)}`}
                                 title={newImport.name}
-                                onClick={() => alert('say hi')}
+                                // onClick={() => alert('say hi')}
                                 image={newImport.thumbnail}
                                 textStyle={'capitalize'}
                             >
