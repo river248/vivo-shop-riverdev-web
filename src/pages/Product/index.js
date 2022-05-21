@@ -37,8 +37,9 @@ function Product() {
                     {somis.map((somi) => (
                         <FlexWrapper key={somi.id}>
                             <Card
+                                to={`/detailed?product=${somi.name}`}
                                 title={somi.name}
-                                onClick={() => alert('say hi')}
+                                // onClick={() => alert('say hi')}
                                 image={somi.thumbnail}
                                 textStyle={'capitalize'}
                             >{`${somi.price} VND`}</Card>
