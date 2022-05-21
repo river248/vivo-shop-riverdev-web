@@ -26,12 +26,12 @@ function DetailedProduct() {
                         <h2>Áo Thun Gấu Nâu</h2>
                         <h3>139,000 VND</h3>
                     </div>
-                    <dix className={cx('content')}>
+                    <div className={cx('content')}>
                         Áo Thun được thiết kế in hình gấu nâu tạo điểm nhấn. <br />
                         Chất liệu: Thun Cotton <br />
                         Form dáng: Croptop & Freesize <br />
                         Màu sắc: Xám Sản xuất: Việt Nam.
-                    </dix>
+                    </div>
                     <div className={cx('footer')}>
                         <div className={cx('size')}>
                             <input id="sizeS" type={'checkbox'} />
