@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import classNames from 'classnames/bind'
+import { Helmet } from 'react-helmet-async'
 
 import styles from './Tip.module.scss'
 import Image from '~/components/Image'
 import images from '~/assets/images'
-import { Helmet } from 'react-helmet-async'
 
 const cx = classNames.bind(styles)
 
