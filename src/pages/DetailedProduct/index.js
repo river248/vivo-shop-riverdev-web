@@ -9,10 +9,16 @@ import { newImports } from '~/data'
 import Card from '~/components/Card'
 import convertLink from '~/utils/convertLink'
 import { addToCart } from '~/apollo/cartApollo'
+import { toast } from 'react-toastify'
 
 const cx = classNames.bind(styles)
 
 function DetailedProduct() {
+    const handleAddToCart = () => {
+        addToCart(newImports[0], 1)
+        toast.success('Đã thêm vào giỏ hàng!')
+    }
+
     return (
         <div className={cx('wrapper')}>
             <Wrapper flexWrapper>
@@ -41,7 +47,7 @@ function DetailedProduct() {
                             <input id="sizeL" type={'checkbox'} />
                             <label htmlFor="sizeL">Size L</label>
                         </div>
-                        <Button primary onClick={() => addToCart(newImports[0], 1)}>
+                        <Button primary onClick={handleAddToCart}>
                             Thêm vào giỏ hàng
                         </Button>
                     </div>

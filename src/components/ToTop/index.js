@@ -1,9 +1,9 @@
 import React, { useState, Fragment, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAnglesUp } from '@fortawesome/free-solid-svg-icons'
 import classNames from 'classnames/bind'
 
 import styles from './ToTop.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAnglesUp } from '@fortawesome/free-solid-svg-icons'
 
 const cx = classNames.bind(styles)
 
