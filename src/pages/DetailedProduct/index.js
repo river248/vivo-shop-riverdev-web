@@ -10,6 +10,7 @@ import Card from '~/components/Card'
 import convertLink from '~/utils/convertLink'
 import { addToCart } from '~/apollo/cartApollo'
 import { toast } from 'react-toastify'
+import routes from '~/config/routes'
 
 const cx = classNames.bind(styles)
 
@@ -59,7 +60,7 @@ function DetailedProduct() {
                 {newImports.map((newImport) => (
                     <FlexWrapper key={newImport.id}>
                         <Card
-                            to={`/detailed?product=${convertLink(newImport.name)}`}
+                            to={`${routes.detailed}?product=${convertLink(newImport.name)}`}
                             title={newImport.name}
                             // onClick={() => alert('say hi')}
                             image={newImport.thumbnail}
