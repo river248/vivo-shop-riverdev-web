@@ -9,20 +9,21 @@ import Product from '~/pages/Product'
 import Tip from '~/pages/Tip'
 import Cart from '~/pages/Cart'
 import DetailedProduct from '~/pages/DetailedProduct'
+import routes from '~/config/routes'
 
 const publicRoutes = [
-    { path: '/', component: Home },
-    { path: '/about', component: About },
-    { path: '/cart', component: Cart },
-    { path: '/contact', component: Contact },
-    { path: '/detailed', component: DetailedProduct },
-    { path: '/login', component: Account, layout: null },
-    { path: '/signup', component: Account, layout: null },
-    { path: '/product/top', component: Product },
-    { path: '/product/bottom', component: Product },
-    { path: '/product/bottom-girl', component: Product },
-    { path: '/return-policy', component: ReturnPolicy },
-    { path: '/tip/*', component: Tip, layout: TipLayout },
+    { path: routes.home, component: Home },
+    { path: routes.about, component: About },
+    { path: routes.cart, component: Cart },
+    { path: routes.contact, component: Contact },
+    { path: routes.detailed, component: DetailedProduct },
+    { path: routes.login, component: Account, layout: null },
+    { path: routes.signup, component: Account, layout: null },
+    { path: routes.productTop, component: Product },
+    { path: routes.productBottom, component: Product },
+    { path: routes.productBottomGirl, component: Product },
+    { path: routes.returnPolicy, component: ReturnPolicy },
+    { path: routes.tip, component: Tip, layout: TipLayout },
 ]
 
 const privateRoutes = []

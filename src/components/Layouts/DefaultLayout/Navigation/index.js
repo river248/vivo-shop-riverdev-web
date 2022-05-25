@@ -6,43 +6,44 @@ import styles from './Navigation.module.scss'
 import Button from '~/components/Button'
 import { Wrapper as PopperWrapper } from '~/components/Popper'
 import { useLocation } from 'react-router-dom'
+import routes from '~/config/routes'
 
 const cx = classNames.bind(styles)
 
 const navItems = [
-    { name: 'TRANG CHỦ', path: '/' },
+    { name: 'TRANG CHỦ', path: routes.home },
     {
         name: 'ÁO',
         categories: [
-            { id: 'somi', name: 'Sơ mi', path: '/product/top?type=ao-so-mi' },
-            { id: 'aokieu', name: 'Áo kiểu', path: '/product/top?type=ao-kieu' },
-            { id: 'thun', name: 'Áo thun', path: '/product/top?type=ao-thun' },
+            { id: 'somi', name: 'Sơ mi', path: `${routes.productTop}?type=ao-so-mi` },
+            { id: 'aokieu', name: 'Áo kiểu', path: `${routes.productTop}?type=ao-kieu` },
+            { id: 'thun', name: 'Áo thun', path: `${routes.productTop}?type=ao-thun` },
         ],
     },
     {
         name: 'QUẦN',
         categories: [
-            { id: 'somi', name: 'Quần jean', path: '/product/bottom?type=quan-jean' },
-            { id: 'quankieu', name: 'Quần kiểu', path: '/product/bottom?type=quan-kieu' },
+            { id: 'somi', name: 'Quần jean', path: `${routes.productBottom}?type=quan-jean` },
+            { id: 'quankieu', name: 'Quần kiểu', path: `${routes.productBottom}?type=quan-kieu` },
         ],
     },
     {
         name: 'VÁY',
         categories: [
-            { id: 'chanvay', name: 'Chân váy', path: '/product/bottom-girl?type=chan-vay' },
-            { id: 'dam', name: 'Đầm', path: '/product/bottom-girl?type=dam' },
+            { id: 'chanvay', name: 'Chân váy', path: `${routes.productBottomGirl}?type=chan-vay` },
+            { id: 'dam', name: 'Đầm', path: `${routes.productBottomGirl}?type=dam` },
         ],
     },
     {
         name: 'TIPS',
         categories: [
-            { id: 'tip1', name: 'Đi học mặc gì?', path: '/tip/1' },
-            { id: 'tip2', name: 'Công sở mặc gì?', path: '/tip/2' },
-            { id: 'tip3', name: 'Tips phối màu đỉnh', path: '/tip/3' },
+            { id: 'tip1', name: 'Đi học mặc gì?', path: `${routes.tip}?number=1` },
+            { id: 'tip2', name: 'Công sở mặc gì?', path: `${routes.tip}?number=2` },
+            { id: 'tip3', name: 'Tips phối màu đỉnh', path: `${routes.tip}?number=3` },
         ],
     },
-    { name: 'GIỚI THIỆU', path: '/about' },
-    { name: 'LIÊN HỆ', path: '/contact' },
+    { name: 'GIỚI THIỆU', path: routes.about },
+    { name: 'LIÊN HỆ', path: routes.contact },
 ]
 
 function Navigation() {
@@ -67,6 +68,7 @@ function Navigation() {
                             key={index}
                             placement="bottom-start"
                             interactive
+                            hideOnClick={false}
                             render={(attrs) => (
                                 <div className={cx('dropdown-menu')} tabIndex="-1" {...attrs}>
                                     <PopperWrapper>

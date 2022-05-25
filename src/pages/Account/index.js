@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom'
 import styles from './Account.module.scss'
 import Input from '~/components/Input'
 import Button from '~/components/Button'
+import routes from '~/config/routes'
 
 const cx = classNames.bind(styles)
 function Account() {
@@ -76,23 +77,23 @@ function Account() {
 
     // Login or Sign up account
     const handleSubmit = () => {
-        if (location.pathname === '/login') {
+        if (location.pathname === routes.login) {
             if (phone && password) handleResetValue()
-        } else if (location.pathname === '/signup') {
+        } else if (location.pathname === routes.signup) {
             if (name && phone && password && confirmPassword) handleResetValue()
         }
     }
     return (
         <Fragment>
             <Helmet>
-                <title>{location.pathname === '/login' ? 'Đăng Nhập' : 'Đăng Ký'}</title>
+                <title>{location.pathname === routes.login ? 'Đăng Nhập' : 'Đăng Ký'}</title>
             </Helmet>
             <div className={cx('wrapper')}>
-                <div className={location.pathname === '/login' ? cx('login-container') : cx('container')}>
+                <div className={location.pathname === routes.login ? cx('login-container') : cx('container')}>
                     <div className={cx('box')}>
-                        <h1>{location.pathname === '/login' ? 'Đăng nhập' : 'Đăng ký'}</h1>
+                        <h1>{location.pathname === routes.login ? 'Đăng nhập' : 'Đăng ký'}</h1>
                         <form onSubmit={(e) => e.preventDefault} className={cx('account-form')}>
-                            {location.pathname === '/signup' && (
+                            {location.pathname === routes.signup && (
                                 <div className={cx('form-group')}>
                                     <Input
                                         value={name}
@@ -135,7 +136,7 @@ function Account() {
                                 />
                                 {passwordErr && <span>{passwordErr}</span>}
                             </div>
-                            {location.pathname === '/signup' && (
+                            {location.pathname === routes.signup && (
                                 <div className={cx('form-group')}>
                                     <Input
                                         value={confirmPassword}
@@ -153,7 +154,7 @@ function Account() {
                             )}
                         </form>
                         <Button primary className={cx('account-btn')} disabled={loading} onClick={handleSubmit}>
-                            {location.pathname === '/login' ? 'Đăng nhập' : 'Đăng ký'}
+                            {location.pathname === routes.login ? 'Đăng nhập' : 'Đăng ký'}
                         </Button>
                         <div className={cx('other-login')}>
                             <span className={cx('title-or')}>OR</span>
@@ -172,21 +173,21 @@ function Account() {
                                 Tiếp tục với Google
                             </Button>
                         </div>
-                        {location.pathname === '/login' && (
+                        {location.pathname === routes.login && (
                             <Button text className={cx('account-btn', 'account-txt-btn')}>
                                 Quên mật khẩu?
                             </Button>
                         )}
                         <Button
                             onClick={handleResetValue}
-                            to={location.pathname === '/login' ? '/signup' : '/login'}
+                            to={location.pathname === routes.login ? routes.signup : routes.login}
                             className={cx('account-btn', 'account-txt-btn')}
                         >
-                            {location.pathname === '/login'
+                            {location.pathname === routes.login
                                 ? 'Bạn chưa có tài khoản? Đăng ký ngay!'
                                 : 'Bạn đã có tài khoản? Đăng nhập ngay!'}
                         </Button>
-                        <Button to={'/'} className={cx('account-btn', 'account-txt-btn')}>
+                        <Button to={routes.home} className={cx('account-btn', 'account-txt-btn')}>
                             Về trang chủ
                         </Button>
                     </div>

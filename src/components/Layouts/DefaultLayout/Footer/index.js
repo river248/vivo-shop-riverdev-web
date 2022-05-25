@@ -7,6 +7,7 @@ import styles from './Footer.module.scss'
 import images from '~/assets/images'
 import Button from '~/components/Button'
 import { faFacebook, faTiktok, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import routes from '~/config/routes'
 
 const cx = classNames.bind(styles)
 
@@ -14,7 +15,7 @@ const links = [
     { path: '/provision', name: 'Điều khoản chung' },
     { path: '/order-method', name: 'Phương thức đặt hàng' },
     { path: '/payment', name: 'Thanh toán và giao nhận' },
-    { path: '/return-policy', name: 'Chính sách đổi trả' },
+    { path: routes.returnPolicy, name: 'Chính sách đổi trả' },
     { path: '/private-policy', name: 'Chính sách bảo mật' },
     { path: '/faq', name: 'Câu hỏi thường gặp' },
 ]
