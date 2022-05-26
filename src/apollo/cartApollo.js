@@ -1,6 +1,6 @@
 import { makeVar } from '@apollo/client'
 
-const data = JSON.parse(localStorage.getItem('shopping_cart'))
+const data = JSON.parse(localStorage.getItem('shoppingCart'))
 export const cartItems = data ? makeVar([...data]) : makeVar([])
 
 const findProdInCart = (cart, product) => {

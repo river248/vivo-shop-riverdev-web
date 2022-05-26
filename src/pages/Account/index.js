@@ -3,27 +3,29 @@ import { Helmet } from 'react-helmet-async'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import styles from './Account.module.scss'
 import Input from '~/components/Input'
 import Button from '~/components/Button'
 import routes from '~/config/routes'
+import { login, register } from '~/context/Auth'
 
 const cx = classNames.bind(styles)
 function Account() {
     const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
     const [nameErr, setNameErr] = useState('')
-    const [phoneErr, setPhoneErr] = useState('')
+    const [emailErr, setEmailErr] = useState('')
     const [passwordErr, setPasswordErr] = useState('')
     const [confirmPasswordErr, setConfirmPasswordErr] = useState('')
 
     const location = useLocation()
+    const navigate = useNavigate()
     const err = 'Vui lòng không bỏ trống!'
 
     const handleFocus = (inp) => {
@@ -31,8 +33,8 @@ function Account() {
             case 'name':
                 setNameErr('')
                 break
-            case 'phone':
-                setPhoneErr('')
+            case 'email':
+                setEmailErr('')
                 break
             case 'password':
                 setPasswordErr('')
@@ -50,8 +52,8 @@ function Account() {
             case 'name':
                 name ? setNameErr('') : setNameErr(err)
                 break
-            case 'phone':
-                phone ? setPhoneErr('') : setPhoneErr(err)
+            case 'email':
+                email ? setEmailErr('') : setEmailErr(err)
                 break
             case 'password':
                 password ? setPasswordErr('') : setPasswordErr(err)
@@ -67,20 +69,46 @@ function Account() {
     const handleResetValue = () => {
         setName('')
         setPassword('')
-        setPhone('')
+        setEmail('')
         setConfirmPassword('')
         setNameErr('')
         setPasswordErr('')
-        setPhoneErr('')
+        setEmailErr('')
         setConfirmPasswordErr('')
     }
 
     // Login or Sign up account
     const handleSubmit = () => {
         if (location.pathname === routes.login) {
-            if (phone && password) handleResetValue()
+            if (email && password) {
+                setLoading(true)
+                login(email, password)
+                    .then((res) => {
+                        setLoading(false)
+                        if (res) {
+                            handleResetValue()
+                            navigate('/')
+                        }
+                    })
+                    .catch(() => {
+                        setLoading(false)
+                    })
+            }
         } else if (location.pathname === routes.signup) {
-            if (name && phone && password && confirmPassword) handleResetValue()
+            if (name && email && password && confirmPassword) {
+                setLoading(true)
+                register(email, password)
+                    .then((res) => {
+                        setLoading(false)
+                        if (res) {
+                            handleResetValue()
+                            navigate('/login')
+                        }
+                    })
+                    .catch(() => {
+                        setLoading(false)
+                    })
+            }
         }
     }
     return (
@@ -110,17 +138,17 @@ function Account() {
                             )}
                             <div className={cx('form-group')}>
                                 <Input
-                                    value={phone}
+                                    value={email}
                                     className={cx('account-input')}
-                                    placeholder="Số điện thoại"
-                                    type="number"
+                                    placeholder="Email"
+                                    type="email"
                                     size="xl-size"
                                     primary
-                                    onFocus={() => handleFocus('phone')}
-                                    onBlur={() => handleBlur('phone')}
-                                    onChange={(e) => setPhone(e.target.value)}
+                                    onFocus={() => handleFocus('email')}
+                                    onBlur={() => handleBlur('email')}
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
-                                {phoneErr && <span>{phoneErr}</span>}
+                                {emailErr && <span>{emailErr}</span>}
                             </div>
                             <div className={cx('form-group')}>
                                 <Input
