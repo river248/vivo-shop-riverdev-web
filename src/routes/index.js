@@ -17,8 +17,6 @@ const publicRoutes = [
     { path: routes.cart, component: Cart },
     { path: routes.contact, component: Contact },
     { path: routes.detailed, component: DetailedProduct },
-    { path: routes.login, component: Account, layout: null },
-    { path: routes.signup, component: Account, layout: null },
     { path: routes.productTop, component: Product },
     { path: routes.productBottom, component: Product },
     { path: routes.productBottomGirl, component: Product },
@@ -26,6 +24,10 @@ const publicRoutes = [
     { path: routes.tip, component: Tip, layout: TipLayout },
 ]
 
+const protectedRoutes = [
+    { path: routes.login, component: Account },
+    { path: routes.signup, component: Account },
+]
 const privateRoutes = []
 
-export { publicRoutes, privateRoutes }
+export { publicRoutes, protectedRoutes, privateRoutes }

@@ -3,14 +3,18 @@ import { Fragment } from 'react'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { publicRoutes } from '~/routes'
+import { privateRoutes, protectedRoutes, publicRoutes } from '~/routes'
 import { DefaultLayout } from '~/components/Layouts'
 import ScrollTopTop from '~/components/ScrollToTop'
+import ProtectedRoute from '~/context/ProtectedRoute'
+import PrivateRoute from '~/context/PrivateRoute'
+import { logout } from '~/context/Auth'
 
 function App() {
     return (
         <Router>
             <div className="App">
+                <button onClick={() => logout()}>Signput</button>
                 <ScrollTopTop />
                 <ToastContainer
                     position="top-center"
@@ -47,6 +51,18 @@ function App() {
                             />
                         )
                     })}
+                    <Route element={<ProtectedRoute />}>
+                        {protectedRoutes.map((route, index) => {
+                            const Page = route.component
+                            return <Route key={index} path={route.path} element={<Page />} />
+                        })}
+                    </Route>
+                    <Route element={<PrivateRoute />}>
+                        {privateRoutes.map((route, index) => {
+                            const Page = route.component
+                            return <Route key={index} path={route.path} element={<Page />} />
+                        })}
+                    </Route>
                 </Routes>
             </div>
         </Router>
