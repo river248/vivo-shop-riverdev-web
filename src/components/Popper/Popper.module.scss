@@ -5,7 +5,7 @@
     box-shadow: 0px 2px 12px var(--box-shadow);
     overflow: auto;
     min-height: 50px;
-    max-height: min((100vh - 96px) - 60px, 734px);
+    max-height: min((100vh - 96px) - 60px, 334px);
 
     &::-webkit-scrollbar {
         width: 8px;

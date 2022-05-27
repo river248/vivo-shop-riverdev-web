@@ -59,6 +59,78 @@ function Search() {
                                     <h4>Candy top</h4>
                                 </FlexWrapper>
                             </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
+                            <Wrapper flexWrapper className={cx('search-item')}>
+                                <FlexWrapper xxl={2} xl={2} lg={2} md={2} xs={2}>
+                                    <Image src={images.candytop} ratio={'ratio1x1'} />
+                                </FlexWrapper>
+                                <FlexWrapper className={cx('content')} xxl={10} xl={10} lg={10} md={10} xs={10}>
+                                    <h4>Candy top</h4>
+                                </FlexWrapper>
+                            </Wrapper>
                         </PopperWrapper>
                     </div>
                 )}
