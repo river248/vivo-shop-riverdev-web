@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import styles from './Account.module.scss'
 import Input from '~/components/Input'
 import Button from '~/components/Button'
-import routes from '~/config/routes'
+import config from '~/config'
 import { login, register } from '~/context/Auth'
 
 const cx = classNames.bind(styles)
@@ -79,7 +79,7 @@ function Account() {
 
     // Login or Sign up account
     const handleSubmit = () => {
-        if (location.pathname === routes.login) {
+        if (location.pathname === config.routes.login) {
             if (email && password) {
                 setLoading(true)
                 login(email, password)
@@ -94,7 +94,7 @@ function Account() {
                         setLoading(false)
                     })
             }
-        } else if (location.pathname === routes.signup) {
+        } else if (location.pathname === config.routes.signup) {
             if (name && email && password && confirmPassword) {
                 setLoading(true)
                 register(email, password)
@@ -114,14 +114,14 @@ function Account() {
     return (
         <Fragment>
             <Helmet>
-                <title>{location.pathname === routes.login ? 'Đăng Nhập' : 'Đăng Ký'}</title>
+                <title>{location.pathname === config.routes.login ? 'Đăng Nhập' : 'Đăng Ký'}</title>
             </Helmet>
             <div className={cx('wrapper')}>
-                <div className={location.pathname === routes.login ? cx('login-container') : cx('container')}>
+                <div className={location.pathname === config.routes.login ? cx('login-container') : cx('container')}>
                     <div className={cx('box')}>
-                        <h1>{location.pathname === routes.login ? 'Đăng nhập' : 'Đăng ký'}</h1>
+                        <h1>{location.pathname === config.routes.login ? 'Đăng nhập' : 'Đăng ký'}</h1>
                         <form onSubmit={(e) => e.preventDefault} className={cx('account-form')}>
-                            {location.pathname === routes.signup && (
+                            {location.pathname === config.routes.signup && (
                                 <div className={cx('form-group')}>
                                     <Input
                                         value={name}
@@ -164,7 +164,7 @@ function Account() {
                                 />
                                 {passwordErr && <span>{passwordErr}</span>}
                             </div>
-                            {location.pathname === routes.signup && (
+                            {location.pathname === config.routes.signup && (
                                 <div className={cx('form-group')}>
                                     <Input
                                         value={confirmPassword}
@@ -182,7 +182,7 @@ function Account() {
                             )}
                         </form>
                         <Button primary className={cx('account-btn')} disabled={loading} onClick={handleSubmit}>
-                            {location.pathname === routes.login ? 'Đăng nhập' : 'Đăng ký'}
+                            {location.pathname === config.routes.login ? 'Đăng nhập' : 'Đăng ký'}
                         </Button>
                         <div className={cx('other-login')}>
                             <span className={cx('title-or')}>OR</span>
@@ -201,21 +201,21 @@ function Account() {
                                 Tiếp tục với Google
                             </Button>
                         </div>
-                        {location.pathname === routes.login && (
+                        {location.pathname === config.routes.login && (
                             <Button text className={cx('account-btn', 'account-txt-btn')}>
                                 Quên mật khẩu?
                             </Button>
                         )}
                         <Button
                             onClick={handleResetValue}
-                            to={location.pathname === routes.login ? routes.signup : routes.login}
+                            to={location.pathname === config.routes.login ? config.routes.signup : config.routes.login}
                             className={cx('account-btn', 'account-txt-btn')}
                         >
-                            {location.pathname === routes.login
+                            {location.pathname === config.routes.login
                                 ? 'Bạn chưa có tài khoản? Đăng ký ngay!'
                                 : 'Bạn đã có tài khoản? Đăng nhập ngay!'}
                         </Button>
-                        <Button to={routes.home} className={cx('account-btn', 'account-txt-btn')}>
+                        <Button to={config.routes.home} className={cx('account-btn', 'account-txt-btn')}>
                             Về trang chủ
                         </Button>
                     </div>

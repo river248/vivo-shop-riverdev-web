@@ -11,7 +11,7 @@ import Card from '~/components/Card'
 import { hotProducts, newImports, newProducts } from '~/data'
 import convertLink from '~/utils/convertLink'
 import { formatMoney } from '~/utils'
-import routes from '~/config/routes'
+import config from '~/config/'
 
 const cx = classNames.bind(styles)
 
@@ -31,7 +31,7 @@ function Home() {
                     {newProducts.map((newProduct) => (
                         <FlexWrapper key={newProduct.id}>
                             <Card
-                                to={`${routes.detailed}?product=${convertLink(newProduct.name)}`}
+                                to={`${config.routes.detailed}?product=${convertLink(newProduct.name)}`}
                                 title={newProduct.name}
                                 // onClick={() => console.log(convertLink(newProduct.name))}
                                 image={newProduct.thumbnail}
@@ -48,7 +48,7 @@ function Home() {
                     {hotProducts.map((hotProduct) => (
                         <FlexWrapper key={hotProduct.id}>
                             <Card
-                                to={`${routes.detailed}?product=${convertLink(hotProduct.name)}`}
+                                to={`${config.routes.detailed}?product=${convertLink(hotProduct.name)}`}
                                 title={hotProduct.name}
                                 // onClick={() => alert('say hi')}
                                 image={hotProduct.thumbnail}
@@ -65,7 +65,7 @@ function Home() {
                     {newImports.map((newImport) => (
                         <FlexWrapper key={newImport.id}>
                             <Card
-                                to={`${routes.detailed}?product=${convertLink(newImport.name)}`}
+                                to={`${config.routes.detailed}?product=${convertLink(newImport.name)}`}
                                 title={newImport.name}
                                 // onClick={() => alert('say hi')}
                                 image={newImport.thumbnail}

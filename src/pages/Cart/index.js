@@ -14,7 +14,7 @@ import Input from '~/components/Input'
 import Button from '~/components/Button'
 import { formatMoney } from '~/utils'
 import { cartItems, updateCart, removeFromCart } from '~/apollo/cartApollo'
-import routes from '~/config/routes'
+import config from '~/config'
 
 const cx = classNames.bind(styles)
 
@@ -120,7 +120,7 @@ function Cart() {
                 ) : (
                     <div className={cx('no-item')}>
                         <h2>Bạn chưa có sản phẩm nào trong giỏ hàng!</h2>
-                        <Button primary to={`${routes.productTop}?type=ao-so-mi`}>
+                        <Button primary to={`${config.routes.productTop}?type=ao-so-mi`}>
                             Mua hàng ngay
                         </Button>
                     </div>

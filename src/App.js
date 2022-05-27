@@ -4,17 +4,15 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { privateRoutes, protectedRoutes, publicRoutes } from '~/routes'
-import { DefaultLayout } from '~/components/Layouts'
+import { DefaultLayout } from '~/layouts'
 import ScrollTopTop from '~/components/ScrollToTop'
 import ProtectedRoute from '~/context/ProtectedRoute'
 import PrivateRoute from '~/context/PrivateRoute'
-import { logout } from '~/context/Auth'
 
 function App() {
     return (
         <Router>
             <div className="App">
-                <button onClick={() => logout()}>Signput</button>
                 <ScrollTopTop />
                 <ToastContainer
                     position="top-center"

@@ -10,7 +10,7 @@ import { Wrapper as ProductWrapper, FlexWrapper } from '~/components/Popper'
 import Button from '~/components/Button'
 import { useQuery } from '~/hooks'
 import { formatMoney } from '~/utils'
-import routes from '~/config/routes'
+import config from '~/config'
 
 const cx = classNames.bind(styles)
 
@@ -39,7 +39,7 @@ function Product() {
                     {somis.map((somi) => (
                         <FlexWrapper key={somi.id}>
                             <Card
-                                to={`${routes.detailed}?product=${somi.name}`}
+                                to={`${config.routes.detailed}?product=${somi.name}`}
                                 title={somi.name}
                                 // onClick={() => alert('say hi')}
                                 image={somi.thumbnail}
