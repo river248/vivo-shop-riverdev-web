@@ -10,7 +10,7 @@ import images from '~/assets/images'
 import Button from '~/components/Button'
 import Search from '../../components/Search'
 import { cartItems } from '~/apollo/cartApollo'
-import routes from '~/config/routes'
+import config from '~/config'
 
 const cx = classNames.bind(styles)
 
@@ -20,23 +20,23 @@ function Header() {
 
     return (
         <header className={cx('wrapper')}>
-            <Link to={routes.home} className={cx('logo')}>
+            <Link to={config.routes.home} className={cx('logo')}>
                 <img src={images.logo} alt="logo" />
             </Link>
             <div className={cx('left-container')}>
                 <div className={cx('left-container-header')}>
-                    <Button to={routes.login} className={cx('custom-btn')}>
+                    <Button to={config.routes.login} className={cx('custom-btn')}>
                         Đăng nhập
                     </Button>
                     <span> hoặc </span>
-                    <Button to={routes.signup} className={cx('custom-btn')}>
+                    <Button to={config.routes.signup} className={cx('custom-btn')}>
                         Tạo tài khoản
                     </Button>
                 </div>
                 <div className={cx('left-container-footer')}>
                     <Search />
 
-                    <button onClick={() => navigate(routes.cart)}>
+                    <button onClick={() => navigate(config.routes.cart)}>
                         <FontAwesomeIcon icon={faCartShopping} />
                         <span className={cx('quantity-product')}>{cart.length > 99 ? '99+' : cart.length}</span>
                     </button>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 
 import { isLoggedIn } from '~/apollo/userApollo'
-import routes from '~/config/routes'
+import config from '~/config'
 import { getToken } from './Auth'
 
 function ProtectedRoute() {
@@ -24,7 +24,7 @@ function ProtectedRoute() {
             })
     }, [isLoggedIn(), token])
 
-    return !token ? <Outlet /> : <Navigate to={routes.home} replace state={{ from: location }} />
+    return !token ? <Outlet /> : <Navigate to={config.routes.home} replace state={{ from: location }} />
 }
 
 export default ProtectedRoute

@@ -5,7 +5,7 @@ import { getDownloadURL, ref } from 'firebase/storage'
 
 import styles from './Image.module.scss'
 import images from '~/assets/images'
-import { storage } from '~/config/firebaseConfig'
+import config from '~/config'
 const cx = classNames.bind(styles)
 
 const Image = forwardRef(({ src, alt, ratio = '', className, ...props }, reference) => {
@@ -15,7 +15,7 @@ const Image = forwardRef(({ src, alt, ratio = '', className, ...props }, referen
         let isSubcribe = true
 
         if (src && !src?.includes('/static'))
-            getDownloadURL(ref(storage, `${src}`))
+            getDownloadURL(ref(config.firebaseStorage, `${src}`))
                 .then((url) => {
                     if (isSubcribe) setImageURL(url)
                 })
