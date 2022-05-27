@@ -64,40 +64,43 @@ function Navigation() {
                         )
                     }
                     return (
-                        <Tippy
-                            key={index}
-                            placement="bottom-start"
-                            interactive
-                            hideOnClick={false}
-                            render={(attrs) => (
-                                <div className={cx('dropdown-menu')} tabIndex="-1" {...attrs}>
-                                    <PopperWrapper>
-                                        {navItem.categories.map((category) => {
-                                            return (
-                                                <div key={category.id} className={cx('menu-item')}>
-                                                    <Button
-                                                        size="large"
-                                                        className={cx('custom-dropdown-btn')}
-                                                        to={category.path}
-                                                    >
-                                                        {category.name}
-                                                    </Button>
-                                                </div>
-                                            )
-                                        })}
-                                    </PopperWrapper>
-                                </div>
-                            )}
-                        >
-                            <li>
-                                <Button className={cx('custom-btn')} text>
-                                    {navItem.name}
-                                </Button>
-                                {navItem.categories[0].path.includes(location.pathname.concat('?')) && (
-                                    <div className={cx('current-page')} />
+                        // Using a wrapper <div> or <span> tag around the reference element solves
+                        // this by creating a new parentNode context.
+                        <div key={index}>
+                            <Tippy
+                                placement="bottom-start"
+                                interactive
+                                hideOnClick={false}
+                                render={(attrs) => (
+                                    <div className={cx('dropdown-menu')} tabIndex="-1" {...attrs}>
+                                        <PopperWrapper>
+                                            {navItem.categories.map((category) => {
+                                                return (
+                                                    <div key={category.id} className={cx('menu-item')}>
+                                                        <Button
+                                                            size="large"
+                                                            className={cx('custom-dropdown-btn')}
+                                                            to={category.path}
+                                                        >
+                                                            {category.name}
+                                                        </Button>
+                                                    </div>
+                                                )
+                                            })}
+                                        </PopperWrapper>
+                                    </div>
                                 )}
-                            </li>
-                        </Tippy>
+                            >
+                                <li>
+                                    <Button className={cx('custom-btn')} text>
+                                        {navItem.name}
+                                    </Button>
+                                    {navItem.categories[0].path.includes(location.pathname.concat('?')) && (
+                                        <div className={cx('current-page')} />
+                                    )}
+                                </li>
+                            </Tippy>
+                        </div>
                     )
                 })}
             </ul>
