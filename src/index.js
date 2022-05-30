@@ -5,14 +5,17 @@ import reportWebVitals from './reportWebVitals'
 
 import GlobalStyles from '~/components/GlobalStyles'
 import { HelmetProvider } from 'react-helmet-async'
+import AuthContextProvider from '~/context/AuthContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
         <HelmetProvider>
-            <GlobalStyles>
-                <App />
-            </GlobalStyles>
+            <AuthContextProvider>
+                <GlobalStyles>
+                    <App />
+                </GlobalStyles>
+            </AuthContextProvider>
         </HelmetProvider>
     </React.StrictMode>,
 )

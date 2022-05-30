@@ -8,11 +8,15 @@ import { DefaultLayout } from '~/layouts'
 import ScrollTopTop from '~/components/ScrollToTop'
 import ProtectedRoute from '~/context/ProtectedRoute'
 import PrivateRoute from '~/context/PrivateRoute'
+import useAuth from '~/hooks/useAuth'
 
 function App() {
+    const { user, logout } = useAuth()
     return (
         <Router>
             <div className="App">
+                <button onClick={() => logout()}>Sign Out</button>
+                <span>{user.name}</span>
                 <ScrollTopTop />
                 <ToastContainer
                     position="top-center"
@@ -49,18 +53,35 @@ function App() {
                             />
                         )
                     })}
-                    <Route element={<ProtectedRoute />}>
-                        {protectedRoutes.map((route, index) => {
-                            const Page = route.component
-                            return <Route key={index} path={route.path} element={<Page />} />
-                        })}
-                    </Route>
-                    <Route element={<PrivateRoute />}>
-                        {privateRoutes.map((route, index) => {
-                            const Page = route.component
-                            return <Route key={index} path={route.path} element={<Page />} />
-                        })}
-                    </Route>
+
+                    {protectedRoutes.map((route, index) => {
+                        const Page = route.component
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <ProtectedRoute>
+                                        <Page />
+                                    </ProtectedRoute>
+                                }
+                            />
+                        )
+                    })}
+                    {privateRoutes.map((route, index) => {
+                        const Page = route.component
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <PrivateRoute>
+                                        <Page />
+                                    </PrivateRoute>
+                                }
+                            />
+                        )
+                    })}
                 </Routes>
             </div>
         </Router>
