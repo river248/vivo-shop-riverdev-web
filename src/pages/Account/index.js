@@ -9,7 +9,7 @@ import styles from './Account.module.scss'
 import Input from '~/components/Input'
 import Button from '~/components/Button'
 import config from '~/config'
-import { login, register } from '~/context/Auth'
+import useAuth from '~/hooks/useAuth'
 
 const cx = classNames.bind(styles)
 function Account() {
@@ -26,6 +26,7 @@ function Account() {
 
     const location = useLocation()
     const navigate = useNavigate()
+    const { login, register } = useAuth()
     const err = 'Vui lòng không bỏ trống!'
 
     const handleFocus = (inp) => {
@@ -97,7 +98,7 @@ function Account() {
         } else if (location.pathname === config.routes.signup) {
             if (name && email && password && confirmPassword) {
                 setLoading(true)
-                register(email, password)
+                register(email, password, name)
                     .then((res) => {
                         setLoading(false)
                         if (res) {
