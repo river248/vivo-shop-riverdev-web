@@ -8,15 +8,11 @@ import { DefaultLayout } from '~/layouts'
 import ScrollTopTop from '~/components/ScrollToTop'
 import ProtectedRoute from '~/context/ProtectedRoute'
 import PrivateRoute from '~/context/PrivateRoute'
-import useAuth from '~/hooks/useAuth'
 
 function App() {
-    const { user, logout } = useAuth()
     return (
         <Router>
             <div className="App">
-                <button onClick={() => logout()}>Sign Out</button>
-                <span>{user.name}</span>
                 <ScrollTopTop />
                 <ToastContainer
                     position="top-center"
@@ -70,14 +66,24 @@ function App() {
                     })}
                     {privateRoutes.map((route, index) => {
                         const Page = route.component
+
+                        let Layout = DefaultLayout
+
+                        if (route.layout) {
+                            Layout = route.layout
+                        } else if (route.layout === null) {
+                            Layout = Fragment
+                        }
                         return (
                             <Route
                                 key={index}
                                 path={route.path}
                                 element={
-                                    <PrivateRoute>
+                                    // <PrivateRoute>
+                                    <Layout>
                                         <Page />
-                                    </PrivateRoute>
+                                    </Layout>
+                                    // </PrivateRoute>
                                 }
                             />
                         )
