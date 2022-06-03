@@ -1,4 +1,6 @@
 import { TipLayout } from '~/layouts'
+import AdminLayout from '~/layouts/AdminLayout'
+import config from '~/config'
 
 import About from '~/pages/About'
 import Account from '~/pages/Account'
@@ -9,7 +11,10 @@ import Product from '~/pages/Product'
 import Tip from '~/pages/Tip'
 import Cart from '~/pages/Cart'
 import DetailedProduct from '~/pages/DetailedProduct'
-import config from '~/config'
+import UserManagenment from '~/pages/UserManagement'
+import ProductManagement from '~/pages/ProductManagement'
+import PackageManagement from '~/pages/PackageManagement'
+import PostManagement from '~/pages/PostManagement'
 
 const publicRoutes = [
     { path: config.routes.home, component: Home },
@@ -28,6 +33,11 @@ const protectedRoutes = [
     { path: config.routes.login, component: Account },
     { path: config.routes.signup, component: Account },
 ]
-const privateRoutes = []
+const privateRoutes = [
+    { path: config.routes.userManagement, component: UserManagenment, layout: AdminLayout },
+    { path: config.routes.productManagement, component: ProductManagement, layout: AdminLayout },
+    { path: config.routes.packageManagement, component: PackageManagement, layout: AdminLayout },
+    { path: config.routes.postManagement, component: PostManagement, layout: AdminLayout },
+]
 
 export { publicRoutes, protectedRoutes, privateRoutes }
