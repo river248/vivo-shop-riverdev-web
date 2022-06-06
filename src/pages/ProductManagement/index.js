@@ -47,7 +47,7 @@ function ProductManagement() {
                         {headerTable.map((item) => (
                             <Fragment key={item.column}>
                                 <FlexWrapper xxl={item.width} xl={item.width} lg={item.width} md={item.width}>
-                                    {item.name}
+                                    <strong>{item.name}</strong>
                                 </FlexWrapper>
                             </Fragment>
                         ))}
