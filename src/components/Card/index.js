@@ -9,7 +9,18 @@ import Image from '~/components/Image'
 
 const cx = classNames.bind(styles)
 
-function Card({ image, ratio = 'ratio3x4', title, textStyle = '', textAlign = '', className, children, to, onClick }) {
+function Card({
+    image,
+    ratio = 'ratio3x4',
+    imageOpacity = false,
+    title,
+    textStyle = '',
+    textAlign = '',
+    className,
+    children,
+    to,
+    onClick,
+}) {
     let Comp = 'div'
 
     const _props = {
@@ -28,7 +39,7 @@ function Card({ image, ratio = 'ratio3x4', title, textStyle = '', textAlign = ''
     })
     return (
         <div className={classes}>
-            {image && <Image ratio={ratio} src={image} alt={title} />}
+            {image && <Image ratio={ratio} opacity={imageOpacity} src={image} alt={title} />}
             <Tippy placement="bottom" content={<span className={cx('tool-tip')}>{title}</span>}>
                 <Comp {..._props} className={cx('title')}>
                     {title}
@@ -42,6 +53,7 @@ function Card({ image, ratio = 'ratio3x4', title, textStyle = '', textAlign = ''
 Card.propTypes = {
     image: PropTypes.string,
     ratio: PropTypes.string,
+    imageOpacity: PropTypes.bool,
     title: PropTypes.string,
     textStyle: PropTypes.string,
     textAlign: PropTypes.string,
