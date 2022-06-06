@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 function useDebounce(value, delay) {
     const [debounceValue, setDebounceValue] = useState(value)
@@ -11,6 +12,11 @@ function useDebounce(value, delay) {
     }, [value])
 
     return debounceValue
+}
+
+useDebounce.proTypes = {
+    value: PropTypes.any,
+    deday: PropTypes.number,
 }
 
 export default useDebounce

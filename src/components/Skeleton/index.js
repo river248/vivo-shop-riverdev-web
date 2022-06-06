@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 
 import styles from './Skeleton.module.scss'
@@ -13,6 +14,10 @@ function Skeleton({ image = false }) {
             <div className={cx('content')} />
         </div>
     )
+}
+
+Skeleton.propTypes = {
+    image: PropTypes.bool,
 }
 
 export default Skeleton

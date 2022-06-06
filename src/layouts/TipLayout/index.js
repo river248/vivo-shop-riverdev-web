@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 
 import styles from './TipLayout.module.scss'
@@ -25,6 +26,10 @@ function TipLayout({ children }) {
             <ToTop />
         </div>
     )
+}
+
+TipLayout.propTypes = {
+    children: PropTypes.node.isRequired,
 }
 
 export default TipLayout
