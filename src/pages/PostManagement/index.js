@@ -5,59 +5,64 @@ import styles from './PostManagement.module.scss'
 import { FlexWrapper, Wrapper } from '~/components/Popper'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
+import HeaderTable from '~/components/HeaderTable'
+import NoItem from '~/components/NoItem'
 
 const cx = classNames.bind(styles)
+
 const headerTable = [
-    { column: 1, width: 5, name: 'Tiêu đề' },
-    { column: 2, width: 2, name: 'Ngày đăng' },
-    { column: 3, width: 3, name: 'Tác giả' },
-    { column: 4, width: 1, name: '' },
-    { column: 5, width: 1, name: '' },
+    { column: 1, width: 5, title: 'Tiêu đề' },
+    { column: 2, width: 2, title: 'Ngày đăng' },
+    { column: 3, width: 3, title: 'Tác giả' },
+    { column: 4, width: 1, title: '' },
+    { column: 5, width: 1, title: '' },
 ]
 
+//When having API, remove it
 const fakePosts = [
-    { id: 1, name: 'Candy Top 1', date: '6/6/2022', author: 'Admin' },
-    { id: 2, name: 'Candy Top 2', date: '6/6/2022', author: 'Admin' },
-    { id: 3, name: 'Candy Top 3', date: '6/6/2022', author: 'Admin' },
-    { id: 4, name: 'Candy Top 4', date: '6/6/2022', author: 'Admin' },
+    { id: 1, name: 'Top 5 lý do nên mua đồ ở Vivo Shop', date: '6/6/2022', author: 'Admin' },
+    { id: 2, name: 'Top 3 tip phối đồ cho nam', date: '6/6/2022', author: 'Admin' },
+    { id: 3, name: 'Đi học nên mặc đồ gì?', date: '6/6/2022', author: 'Admin' },
+    { id: 4, name: 'Top 3 tip phối đồ đẹp', date: '6/6/2022', author: 'Admin' },
 ]
 
 function PostManagement() {
     return (
         <div className={cx('wrapper')}>
-            {' '}
-            {fakePosts.length > 0 && (
-                <Fragment>
-                    <Wrapper flexWrapper>
-                        {headerTable.map((item) => (
-                            <Fragment key={item.column}>
-                                <FlexWrapper xxl={item.width} xl={item.width} lg={item.width} md={item.width}>
-                                    <strong>{item.name}</strong>
-                                </FlexWrapper>
-                            </Fragment>
-                        ))}
-                    </Wrapper>
-                    <div className={cx('bottom-line')} />
-                </Fragment>
-            )}
+            {fakePosts.length > 0 && <HeaderTable tHeader={headerTable} />}
             {fakePosts.map((fakePost) => (
                 <Fragment key={fakePost.id}>
                     <Wrapper flexWrapper>
-                        <FlexWrapper className={cx('col-item')} xxl={5} xl={5} lg={5}>
+                        <FlexWrapper
+                            className={cx('col-item')}
+                            xxl={headerTable[0].width}
+                            xl={headerTable[0].width}
+                            lg={headerTable[0].width}
+                        >
                             {fakePost.name}
                         </FlexWrapper>
-                        <FlexWrapper className={cx('col-item')} xxl={2} xl={2} lg={2}>
+                        <FlexWrapper
+                            className={cx('col-item')}
+                            xxl={headerTable[1].width}
+                            xl={headerTable[1].width}
+                            lg={headerTable[1].width}
+                        >
                             {fakePost.date}
                         </FlexWrapper>
-                        <FlexWrapper className={cx('col-item')} xxl={3} xl={3} lg={3}>
+                        <FlexWrapper
+                            className={cx('col-item')}
+                            xxl={headerTable[2].width}
+                            xl={headerTable[2].width}
+                            lg={headerTable[2].width}
+                        >
                             {fakePost.author}
                         </FlexWrapper>
-                        <FlexWrapper xxl={1} xl={1} lg={1}>
+                        <FlexWrapper xxl={headerTable[3].width} xl={headerTable[3].width} lg={headerTable[3].width}>
                             <div className={cx('icon-btn', 'edit-icon')}>
                                 <FontAwesomeIcon icon={faEdit} />
                             </div>
                         </FlexWrapper>
-                        <FlexWrapper xxl={1} xl={1} lg={1}>
+                        <FlexWrapper xxl={headerTable[4].width} xl={headerTable[4].width} lg={headerTable[4].width}>
                             <div className={cx('icon-btn', 'remove-icon')}>
                                 <FontAwesomeIcon icon={faTrash} />
                             </div>
@@ -66,7 +71,7 @@ function PostManagement() {
                     <div className={cx('bottom-line')} />
                 </Fragment>
             ))}
-            {fakePosts.length < 1 && <h2 className={cx('no-post')}>Không có bài viết nào!</h2>}
+            {fakePosts.length < 1 && <NoItem content={'bài viết'} />}
             <div className={cx('add-post')}>
                 <div className={cx('add-icon')}>
                     <FontAwesomeIcon icon={faPlus} />
