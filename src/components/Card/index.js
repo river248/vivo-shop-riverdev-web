@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import Tippy from '@tippyjs/react'
 import { Link } from 'react-router-dom'
@@ -36,6 +37,17 @@ function Card({ image, ratio = 'ratio3x4', title, textStyle = '', textAlign = ''
             <div className={cx('content')}>{children}</div>
         </div>
     )
+}
+
+Card.propTypes = {
+    image: PropTypes.string,
+    ratio: PropTypes.string,
+    title: PropTypes.string,
+    textStyle: PropTypes.string,
+    textAlign: PropTypes.string,
+    classNames: PropTypes.string,
+    children: PropTypes.node.isRequired,
+    to: PropTypes.string,
 }
 
 export default React.memo(Card)

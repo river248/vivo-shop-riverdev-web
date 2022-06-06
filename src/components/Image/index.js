@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { forwardRef, useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
+import PropTypes from 'prop-types'
 import { getDownloadURL, ref } from 'firebase/storage'
 
 import styles from './Image.module.scss'
@@ -45,5 +46,12 @@ const Image = forwardRef(({ src, alt, ratio = '', className, ...props }, referen
         </div>
     )
 })
+
+Image.propTypes = {
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    ratio: PropTypes.string,
+    className: PropTypes.string,
+}
 
 export default Image

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 
 import styles from './HeaderImage.module.scss'
@@ -15,6 +16,12 @@ function HeaderImage({ image, alt, className }) {
             <Image src={image} alt={alt} />
         </div>
     )
+}
+
+HeaderImage.propTypes = {
+    image: PropTypes.string,
+    alt: PropTypes.string,
+    className: PropTypes.string,
 }
 
 export default HeaderImage

@@ -5,6 +5,7 @@ import {
     onAuthStateChanged,
     updateProfile,
 } from 'firebase/auth'
+import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
@@ -62,6 +63,10 @@ function AuthContextProvider({ children }) {
     }, [])
 
     return <UserContext.Provider value={{ register, user, logout, login }}>{children}</UserContext.Provider>
+}
+
+AuthContextProvider.propTypes = {
+    children: PropTypes.node.isRequired,
 }
 
 export default AuthContextProvider

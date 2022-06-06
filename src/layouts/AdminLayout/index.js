@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 
 import styles from './AdminLayout.module.scss'
@@ -15,6 +16,10 @@ function AdminLayout({ children }) {
             <div className={cx('container')}>{children}</div>
         </div>
     )
+}
+
+AdminLayout.propTypes = {
+    children: PropTypes.node.isRequired,
 }
 
 export default AdminLayout
