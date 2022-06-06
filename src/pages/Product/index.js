@@ -11,6 +11,7 @@ import Button from '~/components/Button'
 import { useQuery } from '~/hooks'
 import { formatMoney } from '~/utils'
 import config from '~/config'
+import convertLink from '~/utils/convertLink'
 
 const cx = classNames.bind(styles)
 
@@ -39,7 +40,7 @@ function Product() {
                     {somis.map((somi) => (
                         <FlexWrapper key={somi.id}>
                             <Card
-                                to={`${config.routes.detailed}?product=${somi.name}`}
+                                to={`${config.routes.detailed}?product=${convertLink(somi.name)}`}
                                 title={somi.name}
                                 // onClick={() => alert('say hi')}
                                 image={somi.thumbnail}
