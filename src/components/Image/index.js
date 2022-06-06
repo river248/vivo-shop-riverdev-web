@@ -9,7 +9,7 @@ import images from '~/assets/images'
 import config from '~/config'
 const cx = classNames.bind(styles)
 
-const Image = forwardRef(({ src, alt, ratio = '', className, ...props }, reference) => {
+const Image = forwardRef(({ src, alt, ratio = '', opacity = false, className, ...props }, reference) => {
     const [fallback, setFallback] = useState('')
     const [imageURL, setImageURL] = useState('')
     useEffect(() => {
@@ -30,6 +30,7 @@ const Image = forwardRef(({ src, alt, ratio = '', className, ...props }, referen
     const classes = cx('wrapper', {
         [className]: className,
         [ratio]: ratio,
+        opacity,
     })
     const handleError = () => {
         setFallback(images.noImage)
@@ -51,6 +52,7 @@ Image.propTypes = {
     src: PropTypes.string,
     alt: PropTypes.string,
     ratio: PropTypes.string,
+    opacity: PropTypes.bool,
     className: PropTypes.string,
 }
 
