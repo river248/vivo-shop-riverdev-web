@@ -7,11 +7,8 @@ import Title from '~/components/Title'
 import images from '~/assets/images'
 import { Wrapper as ProductWrapper, FlexWrapper } from '~/components/Popper'
 import SlideShow from '~/components/SlideShow'
-import Card from '~/components/Card'
 import { hotProducts, newImports, newProducts } from '~/data'
-import convertLink from '~/utils/convertLink'
-import { formatMoney } from '~/utils'
-import config from '~/config/'
+import ProductItem from '~/components/ProductItem'
 
 const cx = classNames.bind(styles)
 
@@ -30,15 +27,7 @@ function Home() {
                 <ProductWrapper flexWrapper>
                     {newProducts.map((newProduct) => (
                         <FlexWrapper key={newProduct.id}>
-                            <Card
-                                to={`${config.routes.detailed}?product=${convertLink(newProduct.name)}`}
-                                title={newProduct.name}
-                                // onClick={() => console.log(convertLink(newProduct.name))}
-                                image={newProduct.thumbnail}
-                                textStyle={'capitalize'}
-                            >
-                                {`${formatMoney(newProduct.price)} VND`}
-                            </Card>
+                            <ProductItem product={newProduct} />
                         </FlexWrapper>
                     ))}
                 </ProductWrapper>
@@ -47,15 +36,7 @@ function Home() {
                 <ProductWrapper flexWrapper>
                     {hotProducts.map((hotProduct) => (
                         <FlexWrapper key={hotProduct.id}>
-                            <Card
-                                to={`${config.routes.detailed}?product=${convertLink(hotProduct.name)}`}
-                                title={hotProduct.name}
-                                // onClick={() => alert('say hi')}
-                                image={hotProduct.thumbnail}
-                                textStyle={'capitalize'}
-                            >
-                                {`${formatMoney(hotProduct.price)} VND`}
-                            </Card>
+                            <ProductItem product={hotProduct} />
                         </FlexWrapper>
                     ))}
                 </ProductWrapper>
@@ -64,15 +45,7 @@ function Home() {
                 <ProductWrapper flexWrapper>
                     {newImports.map((newImport) => (
                         <FlexWrapper key={newImport.id}>
-                            <Card
-                                to={`${config.routes.detailed}?product=${convertLink(newImport.name)}`}
-                                title={newImport.name}
-                                // onClick={() => alert('say hi')}
-                                image={newImport.thumbnail}
-                                textStyle={'capitalize'}
-                            >
-                                {`${formatMoney(newImport.price)} VND`}
-                            </Card>
+                            <ProductItem product={newImport} />
                         </FlexWrapper>
                     ))}
                 </ProductWrapper>

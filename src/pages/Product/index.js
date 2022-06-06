@@ -4,14 +4,11 @@ import { Helmet } from 'react-helmet-async'
 
 import styles from './Product.module.scss'
 import Title from '~/components/Title'
-import Card from '~/components/Card'
 import { somis } from '~/data'
 import { Wrapper as ProductWrapper, FlexWrapper } from '~/components/Popper'
 import Button from '~/components/Button'
 import { useQuery } from '~/hooks'
-import { formatMoney } from '~/utils'
-import config from '~/config'
-import convertLink from '~/utils/convertLink'
+import ProductItem from '~/components/ProductItem'
 
 const cx = classNames.bind(styles)
 
@@ -39,13 +36,7 @@ function Product() {
                 <ProductWrapper flexWrapper>
                     {somis.map((somi) => (
                         <FlexWrapper key={somi.id}>
-                            <Card
-                                to={`${config.routes.detailed}?product=${convertLink(somi.name)}`}
-                                title={somi.name}
-                                // onClick={() => alert('say hi')}
-                                image={somi.thumbnail}
-                                textStyle={'capitalize'}
-                            >{`${formatMoney(somi.price)} VND`}</Card>
+                            <ProductItem product={somi} />
                         </FlexWrapper>
                     ))}
                 </ProductWrapper>
