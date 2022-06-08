@@ -135,7 +135,7 @@ export const newImports = [
             { name: 'M', soldOut: true },
             { name: 'L', soldOut: false },
         ],
-        soldOut: true,
+        soldOut: false,
     },
     {
         id: 'newimport2',

@@ -47,7 +47,8 @@ function ProductInformation({ product }) {
                         Áo Thun được thiết kế in hình gấu nâu tạo điểm nhấn. <br />
                         Chất liệu: Thun Cotton <br />
                         Form dáng: Croptop & Freesize <br />
-                        Màu sắc: Xám Sản xuất: Việt Nam.
+                        Màu sắc: Xám <br />
+                        Sản xuất: Việt Nam.
                     </div>
                     <div className={cx('footer')}>
                         <div className={cx('size')}>
