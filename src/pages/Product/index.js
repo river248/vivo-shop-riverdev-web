@@ -12,29 +12,18 @@ import { useQueryHook } from '~/hooks'
 import ProductItem from '~/components/ProductItem'
 import { GET_PRODDUCTS_BY_CATEGORY } from '~/apollo/productApollo/queries'
 import Skeleton from '~/components/Skeleton'
+import { fake12Data } from '~/utils/fakeData'
 
 const cx = classNames.bind(styles)
 
-const categories = [
-    { id: 'ao-so-mi', name: 'Áo Sơ Mi' },
-    { id: 'ao-kieu', name: 'Áo Kiểu' },
-    { id: 'ao-thun', name: 'Áo Thun' },
-    { id: 'quan-jean', name: 'Quần Jean' },
-    { id: 'quan-kieu', name: 'Quần Kiểu' },
-    { id: 'chan-vay', name: 'Chân Váy' },
-    { id: 'dam', name: 'Đầm' },
-]
 function Product() {
-    let query = useQueryHook().get('type')
-
-    const categoryId = '62a2a5d368509e04fa8e2619'
-    const title = categories.filter((category) => category.id === query)
+    let query = useQueryHook()
 
     const { loading, error, data } = useQuery(GET_PRODDUCTS_BY_CATEGORY, {
         variables: {
-            categoryId: categoryId,
+            categoryId: query.get('category'),
         },
-        skip: categoryId === null,
+        skip: query.get('category') === null || query.get('category') === undefined,
     })
 
     if (error) {
@@ -45,15 +34,19 @@ function Product() {
     return (
         <Fragment>
             <Helmet>
-                <title>{title[0].name}</title>
+                <title>{data ? data.category.products[0].category.name : ''}</title>
             </Helmet>
             <div className={cx('wrapper')}>
-                <Title content={title[0].name} />
+                <Title content={data ? data.category.products[0].category.name : 'LOADING...'} />
                 <ProductWrapper flexWrapper>
                     {loading ? (
-                        <FlexWrapper>
-                            <Skeleton image />
-                        </FlexWrapper>
+                        <Fragment>
+                            {fake12Data.map((item) => (
+                                <FlexWrapper key={item}>
+                                    <Skeleton image />
+                                </FlexWrapper>
+                            ))}
+                        </Fragment>
                     ) : (
                         <Fragment>
                             {data.category.products.map((product) => (

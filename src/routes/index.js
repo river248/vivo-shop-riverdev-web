@@ -22,9 +22,7 @@ const publicRoutes = [
     { path: config.routes.cart, component: Cart },
     { path: config.routes.contact, component: Contact },
     { path: config.routes.detailed, component: DetailedProduct },
-    { path: config.routes.productTop, component: Product },
-    { path: config.routes.productBottom, component: Product },
-    { path: config.routes.productBottomGirl, component: Product },
+    { path: config.routes.product, component: Product },
     { path: config.routes.returnPolicy, component: ReturnPolicy },
     { path: config.routes.tip, component: Tip, layout: TipLayout },
 ]
