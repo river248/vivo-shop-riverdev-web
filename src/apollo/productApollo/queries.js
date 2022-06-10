@@ -7,9 +7,25 @@ export const GET_PRODDUCTS_BY_CATEGORY = gql`
                 id
                 name
                 thumbnail
+                category {
+                    name
+                }
                 price
                 soldOut
             }
+        }
+    }
+`
+
+export const GET_PRODUCT_BY_STATUS = gql`
+    query ListProducts($status: String!) {
+        listProducts(status: $status) {
+            id
+            name
+            status
+            thumbnail
+            price
+            soldOut
         }
     }
 `
@@ -26,16 +42,10 @@ export const GET_PRODDUCT = gql`
                 name
                 soldOut
             }
-            soldOut
             category {
-                products {
-                    id
-                    name
-                    thumbnail
-                    price
-                    soldOut
-                }
+                id
             }
+            soldOut
         }
     }
 `
