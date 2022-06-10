@@ -7,7 +7,7 @@ import { privateRoutes, protectedRoutes, publicRoutes } from '~/routes'
 import { DefaultLayout } from '~/layouts'
 import ScrollTopTop from '~/components/ScrollToTop'
 import ProtectedRoute from '~/context/ProtectedRoute'
-import PrivateRoute from '~/context/PrivateRoute'
+// import PrivateRoute from '~/context/PrivateRoute'
 
 function App() {
     return (

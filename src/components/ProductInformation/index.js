@@ -9,6 +9,7 @@ import Button from '~/components/Button'
 import { addToCart } from '~/apollo/cartApollo'
 import { FlexWrapper, Wrapper } from '~/components/Popper'
 import SoldOut from '~/components/SoldOut'
+import { formatMoney } from '~/utils'
 
 const cx = classNames.bind(styles)
 
@@ -41,7 +42,7 @@ function ProductInformation({ product }) {
                 <FlexWrapper xxl={9} xl={9} lg={9} className={cx('container')}>
                     <div className={cx('header')}>
                         <h2>{product.name}</h2>
-                        <h3>{product.price} VND</h3>
+                        <h3>{formatMoney(product.price)} VND</h3>
                     </div>
                     <div className={cx('content')}>
                         Áo Thun được thiết kế in hình gấu nâu tạo điểm nhấn. <br />
