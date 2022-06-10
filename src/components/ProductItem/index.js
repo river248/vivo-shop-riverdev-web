@@ -15,9 +15,8 @@ function ProductItem({ product }) {
     return (
         <div className={cx('wrapper')}>
             <Card
-                to={`${config.routes.detailed}?product=${convertLink(product.name)}`}
+                to={`${config.routes.detailed}?product=${product.id}&name=${convertLink(product.name)}`}
                 title={product.name}
-                // onClick={() => console.log(convertLink(product.name))}
                 image={product.thumbnail}
                 imageOpacity={product.soldOut}
                 textStyle={'capitalize'}

@@ -2,20 +2,28 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 
 import GlobalStyles from '~/components/GlobalStyles'
 import { HelmetProvider } from 'react-helmet-async'
 import AuthContextProvider from '~/context/AuthContext'
 
+const client = new ApolloClient({
+    uri: 'http://localhost:4000',
+    cache: new InMemoryCache(),
+})
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
         <HelmetProvider>
-            <AuthContextProvider>
-                <GlobalStyles>
-                    <App />
-                </GlobalStyles>
-            </AuthContextProvider>
+            <ApolloProvider client={client}>
+                <AuthContextProvider>
+                    <GlobalStyles>
+                        <App />
+                    </GlobalStyles>
+                </AuthContextProvider>
+            </ApolloProvider>
         </HelmetProvider>
     </React.StrictMode>,
 )
