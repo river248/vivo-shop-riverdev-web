@@ -2,18 +2,19 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import classNames from 'classnames/bind'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import styles from './ProductInformation.module.scss'
 import Image from '~/components/Image'
 import Button from '~/components/Button'
-import { addToCart } from '~/apollo/cartApollo'
 import { FlexWrapper, Wrapper } from '~/components/Popper'
 import SoldOut from '~/components/SoldOut'
 import { formatMoney } from '~/utils'
+import { addToCart } from '~/redux/actions/cartAction'
 
 const cx = classNames.bind(styles)
 
-function ProductInformation({ product }) {
+function ProductInformation({ product, addToCart }) {
     const [sizeSelected, setSizeSelected] = useState('')
 
     const handleSelectSize = (value, isSoldOut) => {
@@ -22,7 +23,8 @@ function ProductInformation({ product }) {
 
     const handleAddToCart = () => {
         if (sizeSelected) {
-            addToCart(product, 1)
+            const productItem = { ...product, size: sizeSelected }
+            addToCart(productItem, 1)
             setSizeSelected('')
             toast.success('Đã thêm vào giỏ hàng!')
         } else {
@@ -86,4 +88,11 @@ ProductInformation.propTypes = {
     product: PropTypes.object,
 }
 
-export default ProductInformation
+const mapDispacthToProps = (dispatch) => {
+    return {
+        addToCart: (product, quantity) => {
+            dispatch(addToCart(product, quantity))
+        },
+    }
+}
+export default connect(null, mapDispacthToProps)(ProductInformation)

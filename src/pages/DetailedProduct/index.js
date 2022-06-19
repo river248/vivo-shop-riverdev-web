@@ -1,13 +1,11 @@
 import React, { Fragment } from 'react'
 import classNames from 'classnames/bind'
-import { useQuery } from '@apollo/client'
+import { toast } from 'react-toastify'
 
 import styles from './DetailedProduct.module.scss'
+import RelativeProducts from './RelativeProducts'
 import ProductInformation from '~/components/ProductInformation'
 import { useQueryHook } from '~/hooks'
-import { GET_PRODDUCT } from '~/apollo/productApollo/queries'
-import { toast } from 'react-toastify'
-import RelativeProducts from './RelativeProducts'
 import Skeleton from '~/components/Skeleton'
 import { FlexWrapper, Wrapper } from '~/components/Popper'
 import { fake5Data } from '~/utils/fakeData'
@@ -17,22 +15,10 @@ const cx = classNames.bind(styles)
 function DetailedProduct() {
     let productId = useQueryHook().get('product')
 
-    const { loading, error, data } = useQuery(GET_PRODDUCT, {
-        variables: {
-            productId: productId,
-        },
-        skip: productId === null,
-    })
-
-    if (error) {
-        toast.error(error)
-        return <></>
-    }
-
     return (
         <div className={cx('wrapper')}>
             <Fragment>
-                {!loading ? <ProductInformation product={data?.product} /> : <Skeleton image />}
+                {/* {!loading ? <ProductInformation product={data?.product} /> : <Skeleton image />}
                 <hr />
                 <h2>SẢN PHẨM LIÊN QUAN</h2>
                 {!loading ? (
@@ -45,7 +31,7 @@ function DetailedProduct() {
                             </FlexWrapper>
                         ))}
                     </Wrapper>
-                )}
+                )} */}
             </Fragment>
         </div>
     )
