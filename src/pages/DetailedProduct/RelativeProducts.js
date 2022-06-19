@@ -7,27 +7,13 @@ import Card from '~/components/Card'
 import convertLink from '~/utils/convertLink'
 import config from '~/config'
 import { formatMoney } from '~/utils'
-import { GET_PRODDUCTS_BY_CATEGORY } from '~/apollo/productApollo/queries'
-import { useQuery } from '@apollo/client'
 import { fake5Data } from '~/utils/fakeData'
 import Skeleton from '~/components/Skeleton'
 
 function RelativeProducts({ categoryId }) {
-    const { loading, error, data } = useQuery(GET_PRODDUCTS_BY_CATEGORY, {
-        variables: {
-            categoryId: categoryId,
-        },
-        skip: categoryId === null || categoryId === undefined,
-    })
-
-    if (error) {
-        toast.error(error)
-        return <></>
-    }
-
     return (
         <ProductWrapper flexWrapper>
-            {!loading ? (
+            {/* {!loading ? (
                 <Fragment>
                     {data?.category.products.map((product) => (
                         <Fragment key={product.id}>
@@ -56,7 +42,7 @@ function RelativeProducts({ categoryId }) {
                         </FlexWrapper>
                     ))}
                 </Fragment>
-            )}
+            )} */}
         </ProductWrapper>
     )
 }

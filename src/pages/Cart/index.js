@@ -3,7 +3,6 @@ import classNames from 'classnames/bind'
 import { Helmet } from 'react-helmet-async'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
-import { useReactiveVar } from '@apollo/client'
 
 import styles from './Cart.module.scss'
 import HeaderImage from '~/components/HeaderImage'
@@ -13,20 +12,18 @@ import Image from '~/components/Image'
 import Input from '~/components/Input'
 import Button from '~/components/Button'
 import { formatMoney } from '~/utils'
-import { cartItems, updateCart, removeFromCart } from '~/apollo/cartApollo'
 import config from '~/config'
 
 const cx = classNames.bind(styles)
 
 function Cart() {
-    const cart = useReactiveVar(cartItems)
-    const total = cart.reduce((result, item) => {
-        return result + item.product.price * item.quantity
-    }, 0)
+    // const total = cart.reduce((result, item) => {
+    //     return result + item.product.price * item.quantity
+    // }, 0)
 
     const handleUpdateCart = (item, type) => {
-        if (type === 'increase' && item.quantity < 1000) updateCart(item.product, 1)
-        if (type === 'decrease' && item.quantity > 1) updateCart(item.product, -1)
+        // if (type === 'increase' && item.quantity < 1000) updateCart(item.product, 1)
+        // if (type === 'decrease' && item.quantity > 1) updateCart(item.product, -1)
     }
 
     return (
@@ -36,7 +33,7 @@ function Cart() {
             </Helmet>
             <div className={cx('wrapper')}>
                 <HeaderImage image={images.cartBanner} alt={'Cart'} />
-                {cart.length > 0 ? (
+                {/* {cart.length > 0 ? (
                     <div className={cx('container')}>
                         <Wrapper className={cx('row')} flexWrapper>
                             <FlexWrapper className={cx('item')} xxl={5} xl={5} lg={5}>
@@ -128,7 +125,7 @@ function Cart() {
                             Mua hàng ngay
                         </Button>
                     </div>
-                )}
+                )} */}
             </div>
         </Fragment>
     )

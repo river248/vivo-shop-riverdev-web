@@ -1,37 +1,23 @@
 import React, { Fragment } from 'react'
 import Tippy from '@tippyjs/react/headless'
 import PropType from 'prop-types'
-import { useQuery } from '@apollo/client'
 import classNames from 'classnames/bind'
 import { useLocation } from 'react-router-dom'
 
 import { Wrapper as PopperWrapper } from '~/components/Popper'
 import styles from './Navigation.module.scss'
 import Button from '~/components/Button'
-import { GET_CATEGORY_BY_TYPE } from '~/apollo/categoryApollo/queries'
 import config from '~/config'
 import convertLink from '~/utils/convertLink'
 import { useQueryHook } from '~/hooks'
 import { convertToLowerCase } from '~/utils/convertString'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 
 const cx = classNames.bind(styles)
 
-function SubNav({ subNavItem }) {
+function SubNav({ subNavItem, listCategories }) {
     const location = useLocation()
     let query = useQueryHook()
-
-    const { loading, error, data } = useQuery(GET_CATEGORY_BY_TYPE, {
-        variables: {
-            type: subNavItem.type,
-        },
-        skip: subNavItem.type === undefined,
-    })
-
-    if (error) {
-        toast.error(error)
-        return <></>
-    }
 
     return (
         // Using a wrapper <div> or <span> tag around the reference element solves
@@ -62,22 +48,21 @@ function SubNav({ subNavItem }) {
                                 </Fragment>
                             ) : (
                                 <Fragment>
-                                    {!loading &&
-                                        data?.listCategories.map((category) => {
-                                            return (
-                                                <div key={category.id} className={cx('menu-item')}>
-                                                    <Button
-                                                        size="large"
-                                                        className={cx('custom-dropdown-btn')}
-                                                        to={`${config.routes.product}?type=${convertToLowerCase(
-                                                            category.type,
-                                                        )}&category=${category.id}&name=${convertLink(category.name)}`}
-                                                    >
-                                                        {category.name}
-                                                    </Button>
-                                                </div>
-                                            )
-                                        })}
+                                    {listCategories.map((category) => {
+                                        return (
+                                            <div key={category.id} className={cx('menu-item')}>
+                                                <Button
+                                                    size="large"
+                                                    className={cx('custom-dropdown-btn')}
+                                                    to={`${config.routes.product}?type=${convertToLowerCase(
+                                                        category.type,
+                                                    )}&category=${category.id}&name=${convertLink(category.name)}`}
+                                                >
+                                                    {category.name}
+                                                </Button>
+                                            </div>
+                                        )
+                                    })}
                                 </Fragment>
                             )}
                         </PopperWrapper>
